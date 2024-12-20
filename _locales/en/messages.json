@@ -1,11 +1,11 @@
 {
-    "chatgpttoolkit_name": {
-        "message": "ChatGPT Toolkit"
-    },
-    "chatgpttoolkit_description": {
-        "message": "Enhances your ChatGPT experience with useful features like a Auto-Fill prompt text from URL, common prompts after response, and much more."
-    },
-    "chatgpttoolkit_author": {
-        "message": "Will Huang"
-    }
+  "tool_name": {
+    "message": "Felo Search Toolkit"
+  },
+  "tool_description": {
+    "message": "Enhances your Felo Search experience with shortcuts and quick access buttons for the Felo Search website."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  }
 }
