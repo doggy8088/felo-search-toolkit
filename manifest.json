@@ -3,11 +3,11 @@
   "name": "__MSG_tool_name__",
   "description": "__MSG_tool_description__",
   "author": "__MSG_tool_author__",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "default_locale": "zh_TW",
   "permissions": ["activeTab", "scripting"],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background.js"
   },
   "action": {
     "default_icon": {
@@ -23,7 +23,7 @@
   },
   "content_scripts": [
     {
-      "js": ["content.js"],
+      "js": ["src/content.js"],
       "matches": ["https://felo.ai/*"]
     }
   ]
