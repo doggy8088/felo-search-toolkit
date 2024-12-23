@@ -3,7 +3,7 @@
   "name": "__MSG_tool_name__",
   "description": "__MSG_tool_description__",
   "author": "__MSG_tool_author__",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "default_locale": "zh_TW",
   "permissions": ["activeTab"],
   "background": {
