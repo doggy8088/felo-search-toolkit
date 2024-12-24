@@ -1,0 +1,11 @@
+{
+    "tool_name": {
+        "message": "Felo Search 万能工具箱"
+    },
+    "tool_description": {
+        "message": "提升 Felo Search 网站的使用体验，提供快速键与快速开启 Felo Search 网站的按钮。"
+    },
+    "tool_author": {
+        "message": "Will 保哥"
+    }
+}
