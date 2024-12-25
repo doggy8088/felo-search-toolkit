@@ -1,5 +1,9 @@
 # Changelog
 
+- 0.5.0 (2024/12/26)
+
+  - 加入「使用 Felo Search 摘要此頁面」右鍵內容選單
+
 - 0.4.0 (2024/12/25)
 
   - 加入全球最優惠的 invite code 到開啟 Felo Search 的網址上

@@ -34,8 +34,8 @@
                 const nextLink = matchingLink?.closest('li')?.nextElementSibling?.querySelector('a')
                     ?? matchingLink?.closest('li')?.nextElementSibling?.nextElementSibling?.querySelector('a');
                 if (nextLink) {
-                    nextLink.parentElement.previousElementSibling.scrollIntoView();
-                    nextLink.click();
+                    nextLink?.parentElement?.previousElementSibling?.scrollIntoView();
+                    nextLink?.click();
                 }
             } else {
                 const firstLink = document.querySelector(`a[href*="/search/"]`);
@@ -79,7 +79,7 @@
             // 找到超連結的下一個同層的 section 元素
             const nextSection = matchingLink?.nextElementSibling;
             // 找到下一層的 button 按鈕
-            const button = nextSection.querySelector("button");
+            const button = nextSection?.querySelector("button");
             button?.click();
 
             await delay(200); // 加入一點延遲來模擬真實打字過程

@@ -7,6 +7,7 @@ More useful features will be released in the future, and we welcome everyone to 
 ## Instructions
 
 1. Click the extension's icon to directly open the Felo Search website.
+2. On any page, right-click to select "Use Felo Search to summarize this page" from the context menu to automatically summarize the entire webpage.
 
 ## Shortcut Keys
 
