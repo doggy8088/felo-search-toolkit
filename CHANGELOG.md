@@ -1,5 +1,9 @@
 # Changelog
 
+- 0.4.0 (2024/12/25)
+
+  - 加入全球最優惠的 invite code 到開啟 Felo Search 的網址上
+
 - 0.3.0 (2024/12/25)
 
   - fix: manifest.json 移除 activeTab 權限
