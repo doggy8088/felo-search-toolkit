@@ -13,6 +13,15 @@
         }
     }
 
+    // SPA 網頁不應該要有 type="submit" 的按鈕，這會導致鍵盤的 Escape 無法被觸發！
+    // setInterval(() => {
+    //     let backdropBlur = document.querySelector('div.backdrop-blur-md');
+    //     let btn = backdropBlur?.parentElement?.querySelector('button');
+    //     if (btn && (btn.attributes['type'] === undefined)) {
+    //         btn.type = 'button';
+    //     }
+    // }, 66);
+
     document.addEventListener("keydown", async (event) => {
 
         // 從網址列取得 pathinfo
@@ -83,18 +92,11 @@
             button?.click();
 
             await delay(200); // 加入一點延遲來模擬真實打字過程
+            clickButtonByText(["確認", "确认", "確認", "Confirm"]);
 
-            // 找到一個按鈕其內容為「確認」，用迴圈去跑，找出 textContent 為「確認」的按鈕
-            const confirmButton = document.querySelectorAll('button');
-            confirmButton.forEach(async (button) => {
-                if (button.textContent.trim() === "確認") {
-                    button.click();
+            await delay(200);
+            nextLink?.click();
 
-                    // 刪除後點擊到下一個連結
-                    await delay(200);
-                    nextLink?.click();
-                }
-            });
             event.preventDefault();
         }
 
@@ -119,9 +121,15 @@
                 }
                 return;
             }
-            // 找到第一個 img 元素並點擊 (Felo Logo)
-            document.querySelector('img')?.click();
-            event.preventDefault();
+
+            let backdropBlur = document.querySelector('div.backdrop-blur-md');
+            if (!backdropBlur) {
+                // 找到第一個 img 元素並點擊 (Felo Logo)
+                document.querySelector('img')?.click();
+                event.preventDefault();
+            } else {
+                backdropBlur?.parentElement?.querySelector('button')?.click();
+            }
         }
 
         // 按下 Alt+/ 就先找出所有 button 元素，比對元素內容，如果為「歷史紀錄」就點擊它

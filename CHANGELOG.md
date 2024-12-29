@@ -1,5 +1,12 @@
 # Changelog
 
+- 0.6.0 (2024/12/29)
+
+  - 新增韓語翻譯
+  - 修正 Modal dialog 行為
+    - 現在在有 Modal dialog 的情況下按 Escape 鍵不會回首頁
+    - 現在在有 Modal dialog 的情況下按 Escape 鍵會優先關閉 Modal dialog
+
 - 0.5.0 (2024/12/26)
 
   - 加入「使用 Felo Search 摘要此頁面」右鍵內容選單
