@@ -82,8 +82,8 @@
 
             // 找到和目前 pathinfo 一樣的超連結
             const matchingLink = document.querySelector(`a[href="${currentPath}"]`);
-            const nextLink = matchingLink?.closest('li').nextElementSibling.querySelector('a')
-                ?? matchingLink?.closest('li').nextElementSibling.nextElementSibling.querySelector('a');
+            const nextLink = matchingLink?.closest('li')?.nextElementSibling?.querySelector('a')
+                ?? matchingLink?.closest('li')?.nextElementSibling?.nextElementSibling?.querySelector('a');
 
             // 找到超連結的下一個同層的 section 元素
             const nextSection = matchingLink?.nextElementSibling;
@@ -95,7 +95,12 @@
             clickButtonByText(["確認", "确认", "確認", "Confirm"]);
 
             await delay(200);
-            nextLink?.click();
+
+            if (!!nextLink) {
+                nextLink?.click();
+            } else {
+                goHome(); // 回首頁
+            }
 
             event.preventDefault();
         }
@@ -110,6 +115,11 @@
 
         // 按下 Escape 就點擊 document.querySelector('img').click()
         if (event.key === "Escape") {
+            // 如果有 [role="dialog"] 就不要觸發
+            if (document.querySelector('[role="dialog"]')) {
+                return;
+            }
+
             // 如果是輸入欄位，就不要觸發
             if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
                 if (event.target.value === '' && currentPath.includes("/history")) {
@@ -124,8 +134,7 @@
 
             let backdropBlur = document.querySelector('div.backdrop-blur-md');
             if (!backdropBlur) {
-                // 找到第一個 img 元素並點擊 (Felo Logo)
-                document.querySelector('img')?.click();
+                goHome(); // 回首頁
                 event.preventDefault();
             } else {
                 backdropBlur?.parentElement?.querySelector('button')?.click();
@@ -151,6 +160,11 @@
         }
 
     });
+
+    function goHome() {
+        // 找到第一個 img 元素並點擊 (Felo Logo)
+        document.querySelector('img')?.click();
+    }
 
     // 延遲函式
     async function delay(ms) {
