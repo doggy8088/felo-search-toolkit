@@ -15,12 +15,13 @@ More useful features will be released in the future, and we welcome everyone to 
   - Press `Ctrl+b` to quickly **toggle the sidebar**
 - Quick page navigation
   - Press `Escape` to quickly **return to the homepage**
-  - Press `Alt+t` to jump to the **Topic Collections** page
-  - Press `Alt+/` to jump to the **History** page
-  - Press `Alt+j` to jump to the **next history record**
-  - Press `Alt+k` to jump to the **previous history record**
+  - Press `t` or `Alt+t` to jump to the **Topic Collections** page
+  - Press `c` or `Alt+c` to click the **Create topic** button within the **Topic Collections** page
+  - Press `/` or `Alt+/` to jump to the **History** page
+  - Press `j` or `Alt+j` to jump to the **next history record**
+  - Press `k` or `Alt+k` to jump to the **previous history record**
 - Thread keyboard operation optimization
-  - Press `Alt+s` to quickly **share** the current thread
+  - Press `s` or `Alt+s` to quickly **share** the current thread
   - Press `Ctrl+Delete` to quickly **delete** the current thread
 - Input field operation optimization
   - Press `Escape` to clear the input field

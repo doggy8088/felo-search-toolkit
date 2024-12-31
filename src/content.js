@@ -1,27 +1,6 @@
 (async function () {
     'use strict';
 
-    // 共用函式：根據按鈕文字內容點擊按鈕
-    function clickButtonByText(buttonTexts) {
-        const buttons = document.querySelectorAll('button');
-        for (let i = 0; i < buttons.length; i++) {
-            const button = buttons[i];
-            if (buttonTexts.includes(button.textContent.trim())) {
-                button.click();
-                break;
-            }
-        }
-    }
-
-    // SPA 網頁不應該要有 type="submit" 的按鈕，這會導致鍵盤的 Escape 無法被觸發！
-    // setInterval(() => {
-    //     let backdropBlur = document.querySelector('div.backdrop-blur-md');
-    //     let btn = backdropBlur?.parentElement?.querySelector('button');
-    //     if (btn && (btn.attributes['type'] === undefined)) {
-    //         btn.type = 'button';
-    //     }
-    // }, 66);
-
     document.addEventListener("keydown", async (event) => {
 
         // 從網址列取得 pathinfo
@@ -70,6 +49,50 @@
                 previousLink.parentElement.previousElementSibling.scrollIntoView();
                 previousLink.click();
             }
+            event.preventDefault();
+        }
+
+        // 按下 Alt+/ 就先找出所有 button 元素，比對元素內容，如果為「歷史紀錄」就點擊它
+        if (event.key === "/") {
+            // 如果是輸入欄位，就不要觸發。但是按下 alt+/ 就可以觸發這個功能。
+            if ((event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") && !event.altKey) {
+                return;
+            }
+
+            clickButtonByText(["歷史記錄", "历史记录", "履歴記録", "History"]);
+            event.preventDefault();
+        }
+
+        // 按下 Alt+t 就先找出所有 button 元素，比對元素內容，如果為「主題集」就點擊它
+        if (event.key === "t") {
+            // 如果是輸入欄位，就不要觸發。但是按下 alt+t 就可以觸發這個功能。
+            if ((event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") && !event.altKey) {
+                return;
+            }
+
+            clickButtonByText(["主題集", "主题集", "トピック集", "Topic Collections"]);
+            event.preventDefault();
+        }
+
+        // 按下 Alt+s 就先找出所有 button 元素，比對元素內容，如果為「分享」就點擊它
+        if (event.key === "s") {
+            // 如果是輸入欄位，就不要觸發。但是按下 alt+s 就可以觸發這個功能。
+            if ((event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") && !event.altKey) {
+                return;
+            }
+
+            clickButtonByText(["分享", "分享", "共有する", "Share"]);
+            event.preventDefault();
+        }
+
+        // 按下 Alt+c 就先找出所有包含 [tabindex] 屬性的元素，比對元素內容，如果為「建立主題」就點擊它
+        if (event.key === "c") {
+            // 如果是輸入欄位，就不要觸發。但是按下 alt+c 就可以觸發這個功能。
+            if ((event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") && !event.altKey) {
+                return;
+            }
+
+            clickButtonByText(["建立主題", "建立主题", "トピックを作成", "Create topic"]);
             event.preventDefault();
         }
 
@@ -140,25 +163,6 @@
                 backdropBlur?.parentElement?.querySelector('button')?.click();
             }
         }
-
-        // 按下 Alt+/ 就先找出所有 button 元素，比對元素內容，如果為「歷史紀錄」就點擊它
-        if (event.altKey && event.key === "/") {
-            clickButtonByText(["歷史記錄", "历史记录", "履歴記録", "History"]);
-            event.preventDefault();
-        }
-
-        // 按下 Alt+t 就先找出所有 button 元素，比對元素內容，如果為「主題集」就點擊它
-        if (event.altKey && event.key === "t") {
-            clickButtonByText(["主題集", "主题集", "トピック集", "Topic Collections"]);
-            event.preventDefault();
-        }
-
-        // 按下 Alt+s 就先找出所有 button 元素，比對元素內容，如果為「分享」就點擊它
-        if (event.altKey && event.key === "s") {
-            clickButtonByText(["分享", "分享", "共有する", "Share"]);
-            event.preventDefault();
-        }
-
     });
 
     function goHome() {
@@ -170,5 +174,99 @@
     async function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
+
+    function clickButtonByText(buttonTexts) {
+        let buttons = document.querySelectorAll('button');
+
+        // 請把所有包含 [tabindex] 屬性都當成 buttons 來處理，並加入到 buttons 之中
+        let tabindexElements = document.querySelectorAll('[tabindex]');
+
+        for (let i = 0; i < tabindexElements.length; i++) {
+            const tabindexElement = tabindexElements[i];
+            if (tabindexElement.tagName !== "BUTTON" && tabindexElement.tabIndex != -1) {
+                buttons = [...buttons, tabindexElement];
+            }
+        }
+
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            // 將 buttonText 所有的 Unicode 空白字元都換成一個空白字元
+            let buttonText = button.textContent.trim().replace(/\s/g, ' ');
+            if (buttonTexts.includes(buttonText)) {
+                button.click();
+                break;
+            }
+        }
+    }
+
+    function display_hotkey_hints() {
+
+        longPressAltKey();
+
+        function showHotkeyHintForButtonByText(buttonTexts, hint) {
+            const buttons = document.querySelectorAll('button');
+            for (let i = 0; i < buttons.length; i++) {
+                const button = buttons[i];
+                let buttonText = button.textContent.trim().replace(/\s/g, ' ');
+                if (buttonTexts.includes(buttonText)) {
+                    addBadge(button, hint);
+                    break;
+                }
+            }
+        }
+
+        function addBadge(element, text) {
+            const badge = document.createElement('span');
+            badge.className = 'badge';
+            badge.textContent = text;
+            badge.style.backgroundColor = '#007bff'; // 改为蓝色
+            badge.style.color = '#fff';
+            badge.style.padding = '0.2em 0.4em';
+            badge.style.borderRadius = '0.25em';
+            badge.style.position = 'absolute';
+            badge.style.marginLeft = '0.5em';
+            badge.style.zIndex = '9999';
+
+            // 设定 badge 的位置
+            const rect = element.getBoundingClientRect();
+            badge.style.left = `${rect.right + window.scrollX + 8}px`;
+            badge.style.top = `${rect.top + window.scrollY}px`;
+
+            // 将 badge 插入到 body 中
+            document.body.appendChild(badge);
+        }
+
+        function longPressAltKey() {
+            let altKeyTimeout;
+            let altKeyIsOn = false;
+            document.addEventListener('keydown', (event) => {
+                if (event.key === "Alt" && altKeyIsOn == false) {
+                    altKeyIsOn = true;
+                    altKeyTimeout = setTimeout(() => {
+                        showHotkeyHintForButtonByText(["主題集", "主题集", "トピック集", "Topic Collections"], 'Alt+T');
+                        showHotkeyHintForButtonByText(["歷史記錄", "历史记录", "履歴記録", "History"], 'Alt+/');
+                        showHotkeyHintForButtonByText(["分享", "分享", "共有する", "Share"], 'Alt+S');
+                    }, 1000); // 1 秒
+                }
+            });
+            document.addEventListener('keyup', (event) => {
+                altKeyIsOn = false;
+                if (event.key === "Alt") {
+                    // 删除所有 span.badge
+                    document.querySelectorAll('span.badge').forEach((el) => el.remove());
+                    altKeyTimeout = clearTimeout(altKeyTimeout);
+                }
+            });
+        }
+    }
+
+    // SPA 网页不应该要有 type="submit" 的按钮，这会导致键盘的 Escape 无法被触发！
+    // setInterval(() => {
+    //     let backdropBlur = document.querySelector('div.backdrop-blur-md');
+    //     let btn = backdropBlur?.parentElement?.querySelector('button');
+    //     if (btn && (btn.attributes['type'] === undefined)) {
+    //         btn.type = 'button';
+    //     }
+    // }, 66);
 
 })();

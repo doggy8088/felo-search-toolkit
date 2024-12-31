@@ -1,9 +1,9 @@
 # Pubilsh Notes
 
-1. Simply zip whole folder as a zip file such as `FeloSearchToolkitExtension_v0.7.0.zip`
+1. Simply zip whole folder as a zip file such as `FeloSearchToolkitExtension_v0.8.0.zip`
 
     ```sh
-    7z a FeloSearchToolkitExtension_v0.7.0.zip _locales images src CHANGELOG.md manifest.json README.*
+    7z a FeloSearchToolkitExtension_v0.8.0.zip _locales images src CHANGELOG.md manifest.json README.*
     ```
 
 2. Publish to Chrome Web Store.
