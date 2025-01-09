@@ -24,7 +24,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     "localhost",
     "local",
 
-    "www.youtube.com",
+    "studio.youtube.com",
   ];
 
   // 排除一些無法總結的域名和私有IP地址
