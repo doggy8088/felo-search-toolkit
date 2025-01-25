@@ -3,7 +3,7 @@
   "name": "__MSG_tool_name__",
   "description": "__MSG_tool_description__",
   "author": "__MSG_tool_author__",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "default_locale": "zh_TW",
   "background": {
     "service_worker": "src/background.js"
@@ -22,7 +22,7 @@
   },
   "content_scripts": [
     {
-      "js": ["src/content.js"],
+      "js": ["src/playwright.js", "src/content.js"],
       "matches": ["https://felo.ai/*"]
     }
   ],

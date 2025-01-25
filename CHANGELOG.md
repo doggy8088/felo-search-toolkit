@@ -1,5 +1,11 @@
 # Changelog
 
+- 0.11.0 (2025/01/25)
+
+  - 移除 `alt-t` 與 `alt-c` 快速鍵
+  - 重構程式碼，加入 `playwright.js` 函式庫
+  - 新增 Zen Mode 功能: 在沒有輸入框的情況下按下 `f` 鍵會進入 Zen Mode
+
 - 0.10.0 (2025/01/10)
 
   - 支援 `www.youtube.com` 域名的影片總結

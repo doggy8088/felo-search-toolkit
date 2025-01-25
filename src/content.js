@@ -59,19 +59,47 @@
                 return;
             }
 
-            clickButtonByText(['歷史記錄', '历史记录', '履歴記録', 'History']);
+            if (!await clickButtonByText(['歷史記錄', '历史记录', '履歴記録', 'History'])) {
+                location.href = '/history';
+            }
+            event.preventDefault();
+        }
+
+        // 按下 f 就隱藏所有不必要的元素
+        if (!isInInputMode(event) && !event.ctrlKey && !event.altKey && event.key === 'f') {
+            // Toggle 頁首
+            document.querySelector('header')?.toggle();
+            // Toggle 側邊欄
+            document.querySelector('aside')?.toggle();
+
+            // Toggle 文章註腳
+            Array.from(document.querySelectorAll('span.footnote-ref')).forEach((e) => {
+                e.toggle();
+            });
+
+            let main = document.querySelector('main');
+            if (!main) return;
+
+            // Toggle 追問區
+            Array.from(main.children).last()?.children?.[1]?.toggle();
+
+            // Toggle 資料來源
+            main.children[1]?.children[0]?.children[0]?.children[1]?.toggle();
+
+            await toggle主要內容區();
+
             event.preventDefault();
         }
 
         // 按下 Alt+t 就先找出所有 button 元素，比對元素內容，如果為「主題集」就點擊它
-        if (!event.ctrlKey && event.key === 't') {
-            // 如果是輸入欄位，就不要觸發。但是按下 alt+t 就可以觸發這個功能。
-            if ((event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') && !event.altKey) {
-                return;
+        if (!isInInputMode(event) && !event.ctrlKey && !event.altKey && event.key === 't') {
+            console.log('Click on 主題集');
+            if (!await clickButtonByText(['主題集', '主题集', 'トピック集', 'Topic Collections'])) {
+                console.log('Unable to click on 主題集, Redirecting to /topic');
+                location.href = '/topic';
             }
-
-            clickButtonByText(['主題集', '主题集', 'トピック集', 'Topic Collections']);
             event.preventDefault();
+            return;
         }
 
         // 按下 Alt+s 就先找出所有 button 元素，比對元素內容，如果為「分享」就點擊它
@@ -81,19 +109,16 @@
                 return;
             }
 
-            clickButtonByText(['分享', '分享', '共有する', 'Share']);
+            await clickButtonByText(['分享', '分享', '共有する', 'Share']);
             event.preventDefault();
+            return;
         }
 
-        // 按下 Alt+c 就先找出所有包含 [tabindex] 屬性的元素，比對元素內容，如果為「建立主題」就點擊它
-        if (!event.ctrlKey && event.key === 'c') {
-            // 如果是輸入欄位，就不要觸發。但是按下 alt+c 就可以觸發這個功能。
-            if ((event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') && !event.altKey) {
-                return;
-            }
-
-            clickButtonByText(['建立主題', '建立主题', 'トピックを作成', 'Create topic']);
+        // 按下 c 就點擊「建立主題」按鈕
+        if (!isInInputMode(event) && !event.ctrlKey && !event.altKey && event.key === 'c') {
+            await clickButtonByText(['建立主題', '建立主题', 'トピックを作成', 'Create topic']);
             event.preventDefault();
+            return;
         }
 
         // 按下 Ctrl+Delete 快速刪除 Felo Search 聊天記錄
@@ -103,29 +128,12 @@
                 return;
             }
 
-            // 找到和目前 pathinfo 一樣的超連結
-            const matchingLink = document.querySelector(`a[href='${currentPath}']`);
-            const nextLink = matchingLink?.closest('li')?.nextElementSibling?.querySelector('a')
-                ?? matchingLink?.closest('li')?.nextElementSibling?.nextElementSibling?.querySelector('a');
-
-            // 找到超連結的下一個同層的 section 元素
-            const nextSection = matchingLink?.nextElementSibling;
-            // 找到下一層的 button 按鈕
-            const button = nextSection?.querySelector('button');
-            button?.click();
-
-            await delay(200); // 加入一點延遲來模擬真實打字過程
-            clickButtonByText(['確認', '确认', '確認', 'Confirm']);
-
-            await delay(200);
-
-            if (!!nextLink) {
-                nextLink?.click();
-            } else {
-                goHome(); // 回首頁
-            }
+            await (await window.page.getByRole('button', undefined, document.querySelector('header')).last()).press('Enter');
+            await window.page.getByRole('menuitem', { name: ['刪除討論串', '删除帖子', '投稿を削除', 'Delete Thread'] }).click();
+            await window.page.getByRole('button', { name: ['確認', '确认', '確認', 'Confirm'] }).click()
 
             event.preventDefault();
+            return;
         }
 
         // 按下 Ctrl+B 快速切換側邊欄
@@ -134,6 +142,7 @@
             const svg = document.querySelector('section.cursor-pointer svg');
             svg?.parentElement.click();
             event.preventDefault();
+            return;
         }
 
         // 按下 Escape 就點擊 document.querySelector('img').click()
@@ -159,11 +168,23 @@
             if (!backdropBlur) {
                 goHome(); // 回首頁
                 event.preventDefault();
+                return;
             } else {
                 backdropBlur?.parentElement?.querySelector('button')?.click();
             }
         }
     });
+
+    function isInInputMode(event) {
+        var element = event.target;
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            return true;
+        }
+        if (element.isContentEditable) {
+            return true;
+        }
+        return false;
+    }
 
     function goHome() {
         // 找到第一個 img 元素並點擊 (Felo Logo)
@@ -175,98 +196,93 @@
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    function clickButtonByText(buttonTexts) {
-        let buttons = document.querySelectorAll('button');
 
-        // 請把所有包含 [tabindex] 屬性都當成 buttons 來處理，並加入到 buttons 之中
-        let tabindexElements = document.querySelectorAll('[tabindex]');
 
-        for (let i = 0; i < tabindexElements.length; i++) {
-            const tabindexElement = tabindexElements[i];
-            if (tabindexElement.tagName !== 'BUTTON' && tabindexElement.tabIndex != -1) {
-                buttons = [...buttons, tabindexElement];
-            }
+    async function clickButtonByText(buttonTexts) {
+
+        window.page.WAIT_TIMEOUT = 0;
+
+        let btnLocator = window.page.getByRole('button', { name: buttonTexts });
+        if (await btnLocator.isVisible()) {
+            await btnLocator.click();
+            return true;
         }
 
-        for (let i = 0; i < buttons.length; i++) {
-            const button = buttons[i];
-            // 將 buttonText 所有的 Unicode 空白字元都換成一個空白字元
-            let buttonText = button.textContent.trim().replace(/\s/g, ' ');
-            if (buttonTexts.includes(buttonText)) {
-                button.click();
-                break;
-            }
+        // 某些按鈕並不是 button 的型態，所以只能比對文字去找
+        btnLocator = window.page.getByText(buttonTexts, { exact: false });
+        if (await btnLocator.isVisible()) {
+            await btnLocator.click();
+            return true;
         }
+
+        window.page.WAIT_TIMEOUT = 5000;
+
+        return false;
     }
 
-    function display_hotkey_hints() {
-
-        longPressAltKey();
-
-        function showHotkeyHintForButtonByText(buttonTexts, hint) {
-            const buttons = document.querySelectorAll('button');
-            for (let i = 0; i < buttons.length; i++) {
-                const button = buttons[i];
-                let buttonText = button.textContent.trim().replace(/\s/g, ' ');
-                if (buttonTexts.includes(buttonText)) {
-                    addBadge(button, hint);
-                    break;
-                }
-            }
-        }
-
-        function addBadge(element, text) {
-            const badge = document.createElement('span');
-            badge.className = 'badge';
-            badge.textContent = text;
-            badge.style.backgroundColor = '#007bff'; // 改为蓝色
-            badge.style.color = '#fff';
-            badge.style.padding = '0.2em 0.4em';
-            badge.style.borderRadius = '0.25em';
-            badge.style.position = 'absolute';
-            badge.style.marginLeft = '0.5em';
-            badge.style.zIndex = '9999';
-
-            // 设定 badge 的位置
-            const rect = element.getBoundingClientRect();
-            badge.style.left = `${rect.right + window.scrollX + 8}px`;
-            badge.style.top = `${rect.top + window.scrollY}px`;
-
-            // 将 badge 插入到 body 中
-            document.body.appendChild(badge);
-        }
-
-        function longPressAltKey() {
-            let altKeyTimeout;
-            let altKeyIsOn = false;
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Alt' && altKeyIsOn == false) {
-                    altKeyIsOn = true;
-                    altKeyTimeout = setTimeout(() => {
-                        showHotkeyHintForButtonByText(['主題集', '主题集', 'トピック集', 'Topic Collections'], 'Alt+T');
-                        showHotkeyHintForButtonByText(['歷史記錄', '历史记录', '履歴記録', 'History'], 'Alt+/');
-                        showHotkeyHintForButtonByText(['分享', '分享', '共有する', 'Share'], 'Alt+S');
-                    }, 1000); // 1 秒
-                }
-            });
-            document.addEventListener('keyup', (event) => {
-                altKeyIsOn = false;
-                if (event.key === 'Alt') {
-                    // 删除所有 span.badge
-                    document.querySelectorAll('span.badge').forEach((el) => el.remove());
-                    altKeyTimeout = clearTimeout(altKeyTimeout);
-                }
-            });
-        }
+    window.HTMLElement.prototype.show = function () {
+        this.style.display = 'block';
     }
 
-    // SPA 网页不应该要有 type='submit' 的按钮，这会导致键盘的 Escape 无法被触发！
-    // setInterval(() => {
-    //     let backdropBlur = document.querySelector('div.backdrop-blur-md');
-    //     let btn = backdropBlur?.parentElement?.querySelector('button');
-    //     if (btn && (btn.attributes['type'] === undefined)) {
-    //         btn.type = 'button';
-    //     }
-    // }, 66);
+    window.HTMLElement.prototype.hide = function () {
+        this.style.display = 'none';
+    }
+
+    window.HTMLElement.prototype.toggle = function () {
+        // 判斷 this.existingStyleDisplay 屬性是否存在，如果不存在就設定為 this.style.display
+        if (!this.hasOwnProperty('existingStyleDisplay')) {
+            this.existingStyleDisplay = this.style.display;
+        }
+
+        // 設定 this.style.display 要跟 this.existingStyleDisplay 與 none 之間做切換
+        this.style.display = this.style.display === 'none' ? this.existingStyleDisplay : 'none';
+    }
+
+    window.Array.prototype.last = function () {
+        return this[this.length - 1];
+    }
+
+    async function toggle主要內容區() {
+        window.page.WAIT_TIMEOUT = 0;
+
+        let h1 = document.querySelectorAll('h1');
+        let elements = Array.from(h1);
+        if (elements.length == 0) return;
+
+        elements.forEach((e) => {
+            let parentNode = e?.closest('div.mb-6')?.parentElement.children;
+            if (!parentNode) return;
+
+            let contentElements = Array.from(parentNode);
+
+            let blockHeader = contentElements[0];
+            // console.log('blockHeader', blockHeader);
+            let blockMetadata = contentElements[1];
+            // console.log('blockMetadata', blockMetadata);
+
+            // 不一定有心智圖
+            let blockMindMap = contentElements[contentElements.length - 4];
+            // console.log('blockMindMap', blockMindMap);
+            if (blockMindMap !== blockMetadata) {
+                blockMindMap?.toggle();
+            }
+
+            let blockContent = contentElements[contentElements.length - 3];
+            // console.log('blockContent', blockContent);
+            let blockToolbar = contentElements[contentElements.length - 2];
+            // console.log('blockToolbar', blockToolbar);
+            if (!blockHeader || !blockMetadata || !blockContent || !blockToolbar) return;
+            let blockRelated = contentElements[contentElements.length - 1];
+            // console.log('blockRelated', blockRelated);
+
+
+            blockMetadata.toggle();
+            blockToolbar.toggle();
+
+            blockRelated?.toggle();
+        });
+
+        window.page.WAIT_TIMEOUT = 5000;
+    }
 
 })();
