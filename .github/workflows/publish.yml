@@ -1,0 +1,62 @@
+name: 發布至 Chrome Web Store
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 設定 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 取得版本號
+        id: get_version
+        run: |
+          $version = (Get-Content manifest.json | ConvertFrom-Json).version
+          echo "version=$version" >> $env:GITHUB_OUTPUT
+
+      - name: 建立 GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          release_name: Release v${{ steps.get_version.outputs.version }}
+          draft: false
+          prerelease: false
+
+      - name: 安裝 7-Zip
+        run: choco install 7zip -y
+
+      - name: 建立 ZIP 封裝檔
+        run: |
+          $filePath = "FeloSearchToolkitExtension_v${{ steps.get_version.outputs.version }}.zip"
+          7z a $filePath _locales images src CHANGELOG.md manifest.json README.*
+
+      - name: 上傳 Release 附件
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./FeloSearchToolkitExtension_v${{ steps.get_version.outputs.version }}.zip
+          asset_name: FeloSearchToolkitExtension_v${{ steps.get_version.outputs.version }}.zip
+          asset_content_type: application/zip
+
+      - name: 發布至 Chrome Web Store
+        uses: mnao305/chrome-extension-upload@v4.0.1
+        with:
+          file-path: '*.zip'
+          extension-id: ${{ secrets.EXTENSION_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          refresh-token: ${{ secrets.REFRESH_TOKEN }}
