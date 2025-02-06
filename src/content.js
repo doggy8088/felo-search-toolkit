@@ -81,14 +81,16 @@
                 e.toggle();
             });
 
+            // Toggle 資料來源
+            Array.from(document.querySelectorAll('div.thread-item')).forEach((e) => {
+                e?.children[1]?.toggle();
+            });
+
             let main = document.querySelector('main');
             if (!main) return;
 
             // Toggle 追問區
             Array.from(main.children).last()?.children?.[1]?.toggle();
-
-            // Toggle 資料來源
-            main.children[1]?.children[0]?.children[0]?.children[1]?.toggle();
 
             await toggle主要內容區();
 
