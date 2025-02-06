@@ -25,12 +25,12 @@ jobs:
 
       - name: 建立 GitHub Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           tag_name: v${{ steps.get_version.outputs.version }}
-          release_name: Release v${{ steps.get_version.outputs.version }}
+          name: Release v${{ steps.get_version.outputs.version }}
           draft: false
           prerelease: false
 
@@ -43,14 +43,11 @@ jobs:
           7z a $filePath _locales images src CHANGELOG.md manifest.json README.*
 
       - name: 上傳 Release 附件
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./FeloSearchToolkitExtension_v${{ steps.get_version.outputs.version }}.zip
-          asset_name: FeloSearchToolkitExtension_v${{ steps.get_version.outputs.version }}.zip
-          asset_content_type: application/zip
+          files: ./FeloSearchToolkitExtension_v${{ steps.get_version.outputs.version }}.zip
 
       - name: 發布至 Chrome Web Store
         uses: mnao305/chrome-extension-upload@v4.0.1
