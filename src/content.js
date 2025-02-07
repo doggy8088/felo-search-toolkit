@@ -7,22 +7,9 @@
 
     document.addEventListener('keydown', async (event) => {
 
-        // 從網址列取得 pathinfo
-        const currentPath = window.location.pathname;
-
-        if (!isCtrlOrMetaKeyPressed(event) && event.key === 'j') {
-            // 如果是輸入欄位，就不要觸發。但是按下 alt+j 就可以觸發這個功能。
-            if ((event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') && !event.altKey) {
-                return;
-            }
-
-            // 1. 從網址列取得 pathinfo
-            const currentUrl = window.location.pathname;
-
-            // 2. 找到和目前 pathinfo 一樣的超連結
-            const matchingLink = document.querySelector(`a[href='${currentUrl}']`);
+        if (!isInInputMode(event) && !isCtrlOrMetaKeyPressed(event) && !event.altKey && event.key === 'j') {
+            const matchingLink = document.querySelector(`a[href='${window.location.pathname}']`);
             if (matchingLink) {
-                // 找到下一個 link
                 const nextLink = matchingLink?.closest('li')?.nextElementSibling?.querySelector('a')
                     ?? matchingLink?.closest('li')?.nextElementSibling?.nextElementSibling?.querySelector('a');
                 if (nextLink) {
@@ -36,17 +23,8 @@
             event.preventDefault();
         }
 
-        if (!isCtrlOrMetaKeyPressed(event) && event.key === 'k') {
-            // 如果是輸入欄位，就不要觸發。但是按下 alt+k 就可以觸發這個功能。
-            if ((event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') && !event.altKey) {
-                return;
-            }
-
-            // 1. 從網址列取得 pathinfo
-            const currentUrl = window.location.pathname;
-
-            // 2. 找到和目前 pathinfo 一樣的超連結
-            const matchingLink = document.querySelector(`a[href='${currentUrl}']`);
+        if (!isInInputMode(event) && !isCtrlOrMetaKeyPressed(event) && !event.altKey && event.key === 'k') {
+            const matchingLink = document.querySelector(`a[href='${window.location.pathname}']`);
             const previousLink = matchingLink?.closest('li')?.previousElementSibling?.querySelector('a')
                 ?? matchingLink?.closest('li')?.previousElementSibling?.previousElementSibling?.querySelector('a');
             if (previousLink) {
@@ -54,19 +32,21 @@
                 previousLink.click();
             }
             event.preventDefault();
+            return;
         }
 
-        // 按下 Alt+/ 就先找出所有 button 元素，比對元素內容，如果為「歷史紀錄」就點擊它
-        if (!isCtrlOrMetaKeyPressed(event) && event.key === '/') {
-            // 如果是輸入欄位，就不要觸發。但是按下 alt+/ 就可以觸發這個功能。
-            if ((event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') && !event.altKey) {
-                return;
-            }
-
+        if (!isInInputMode(event) && !isCtrlOrMetaKeyPressed(event) && !event.altKey && event.key === 'h') {
             if (!await clickButtonByText(['歷史記錄', '历史记录', '履歴記録', 'History'])) {
                 location.href = '/history';
             }
             event.preventDefault();
+            return;
+        }
+
+        if (!isInInputMode(event) && !isCtrlOrMetaKeyPressed(event) && !event.altKey && event.key === 'p') {
+            document.querySelector('#pptGenerate')?.click();
+            event.preventDefault();
+            return;
         }
 
         // 按下 f 就隱藏所有不必要的元素
@@ -95,6 +75,7 @@
             await toggle主要內容區();
 
             event.preventDefault();
+            return;
         }
 
         // 按下 Alt+t 就先找出所有 button 元素，比對元素內容，如果為「主題集」就點擊它
@@ -160,7 +141,7 @@
 
             // 如果是輸入欄位，就不要觸發
             if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
-                if (event.target.value === '' && currentPath.includes('/history')) {
+                if (event.target.value === '' && window.location.pathname.includes('/history')) {
                     // 只有在歷史紀錄頁面且搜尋欄位是空白時才會觸發
                     window.history.back();
                 }

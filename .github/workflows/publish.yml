@@ -47,6 +47,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
+          tag_name: v${{ steps.get_version.outputs.version }}
           files: ./FeloSearchToolkitExtension_v${{ steps.get_version.outputs.version }}.zip
 
       - name: 發布至 Chrome Web Store
