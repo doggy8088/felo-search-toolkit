@@ -17,11 +17,12 @@ More useful features will be released in the future, and we welcome everyone to 
   - Press `Escape` to quickly **return to the homepage**
   - Press `t` to jump to the **Topic Collections** page
   - Press `c` to click the **Create topic** button within the **Topic Collections** page
-  - Press `/` or `Alt+/` to jump to the **History** page
-  - Press `j` or `Alt+j` to jump to the **next history record**
-  - Press `k` or `Alt+k` to jump to the **previous history record**
+  - Press `j` to jump to the **next history record**
+  - Press `k` to jump to the **previous history record**
+  - Press `h` to jump to the **History** page
 - Thread keyboard operation optimization
   - Press `s` or `Alt+s` to quickly **share** the current thread
+  - Press `p` to **generate presentation** for the current thread
   - Press `Ctrl+Delete` to quickly **delete** the current thread
 - Input field operation optimization
   - Press `Escape` to clear the input field
