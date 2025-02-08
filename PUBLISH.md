@@ -3,7 +3,7 @@
 Simply zip whole folder as a zip file and upload to [Chrome Web Store](https://chrome.google.com/webstore/devconsole/1493e0a9-a65c-4e31-aefb-d9f27e0d8026/nkeadnckjdandlphpaniomonofdhlanb/edit/package).
 
 ```sh
-$filePath = "FeloSearchToolkitExtension_v0.12.0.zip"
+$filePath = "FeloSearchToolkitExtension_v0.13.0.zip"
 7z a $filePath _locales images src CHANGELOG.md manifest.json README.*
 (Get-ChildItem -Path . -Filter $filePath -Recurse | Select-Object -ExpandProperty FullName) | Set-Clipboard
 ```
@@ -31,34 +31,25 @@ $filePath = "FeloSearchToolkitExtension_v0.12.0.zip"
       - 開發人員聯絡資訊
    ```
 
-3. **取得 CLIENT\_ID 和 CLIENT\_SECRET**
+3. **取得 `CLIENT_ID` 和 `CLIENT_SECRET`**
 
    ```markdown
    1. 側邊選單選擇「憑證」
    2. 點選「建立憑證」→「OAuth 用戶端 ID」
    3. 應用程式類型選擇「桌面應用程式」
-   4. 記下 CLIENT_ID 和 CLIENT_SECRET
+   4. 記下 `CLIENT_ID` 和 `CLIENT_SECRET`
    ```
 
-4. **取得 REFRESH\_TOKEN**
+4. **取得 `REFRESH_TOKEN`**
 
-   ```powershell
-   # 1. 安裝所需套件
-   npm install -g chrome-webstore-upload-cli
-
-   # 2. 執行授權指令
-   chrome-webstore-upload-cli auth --client-id YOUR_CLIENT_ID --client-secret YOUR_CLIENT_SECRET
-
-   # 3. 依照提示在瀏覽器中授權，並複製授權碼
-
-   # 4. 貼上授權碼後，會取得 REFRESH_TOKEN
-   ```
+   請透過 [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/) 取得 Refresh Token (刷新金鑰)
 
 5. **設定 GitHub Secrets**
 
    ```markdown
    1. 前往專案的 Settings → Secrets → Actions
    2. 新增以下 Secret：
+      - GH_TOKEN (GitHub Personal Access Token)
       - EXTENSION_ID (從 Chrome Web Store 開發者面板取得)
       - CLIENT_ID
       - CLIENT_SECRET
@@ -68,5 +59,5 @@ $filePath = "FeloSearchToolkitExtension_v0.12.0.zip"
 注意事項：
 
 * OAuth 同意畫面需要等待 Google 審核
-* REFRESH\_TOKEN 具有長期有效性，請妥善保管
+* `REFRESH_TOKEN` 具有長期有效性，請妥善保管
 * 建議在本機測試 API 呼叫是否正常運作

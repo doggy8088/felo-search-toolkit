@@ -46,7 +46,12 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   }
 
   if (info.menuItemId === "summaryUrl") {
-    const prompt = `summary this ${tab.url}`;
+    let prompt;
+    if (domain === "www.youtube.com" || domain === "youtube.com") {
+      prompt = `Summary YouTube Video: ${tab.title}\n${tab.url}`;
+    } else {
+      prompt = `summary this: ${tab.title}\n${tab.url}`;
+    }
     chrome.tabs.create({ url: `https://felo.ai/?invite=dOLn1YloyaD3j&mode=verbose&q=${encodeURIComponent(prompt)}` });
   }
 
