@@ -139,12 +139,19 @@
                 return;
             }
 
-            // 如果是輸入欄位，就不要觸發
             if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
-                if (event.target.value === '' && window.location.pathname.includes('/history')) {
-                    // 只有在歷史紀錄頁面且搜尋欄位是空白時才會觸發
+
+                // 只有在歷史紀錄頁面且搜尋欄位是空白時才會觸發
+                if (window.location.pathname.includes('/history') && event.target.value === '') {
                     window.history.back();
                 }
+
+                // 如果是編輯原始提問，就不要清空輸入框
+                if (event.target.nextElementSibling?.querySelectorAll('button').length == 2) {
+                    event.target.nextElementSibling?.querySelectorAll('button')[0]?.click();
+                    return;
+                }
+
                 if (event.target.value !== '') {
                     event.target.value = '';
                 }
