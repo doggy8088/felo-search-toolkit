@@ -48,9 +48,9 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "summaryUrl") {
     let prompt;
     if (domain === "www.youtube.com" || domain === "youtube.com") {
-      prompt = `Summary YouTube Video: ${tab.title}\n${tab.url}`;
+      prompt = `${tab.title}\n${tab.url}\nGive a bullet-point summary of the main arguments and evidence in this text.`;
     } else {
-      prompt = `summary this: ${tab.title}\n${tab.url}`;
+      prompt = `${tab.title}\n${tab.url}\nGive a bullet-point summary of the main arguments and evidence in this text.`;
     }
     chrome.tabs.create({ url: `https://felo.ai/?invite=dOLn1YloyaD3j&mode=verbose&q=${encodeURIComponent(prompt)}` });
   }
