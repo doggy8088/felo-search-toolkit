@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Set Alat Felo Search"
+  },
+  "tool_description": {
+    "message": "Meningkatkan pengalaman Felo Search anda dengan pintasan dan butang akses pantas untuk laman web Felo Search."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Ringkaskan halaman ini dengan Felo Search"
+  }
+}

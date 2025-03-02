@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Bộ Công Cụ Felo Search"
+  },
+  "tool_description": {
+    "message": "Cải thiện trải nghiệm Felo Search của bạn với các phím tắt và nút truy cập nhanh cho trang web Felo Search."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Tóm tắt trang này bằng Felo Search"
+  }
+}

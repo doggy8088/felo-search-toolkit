@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Felo Search Werkzeugkasten"
+  },
+  "tool_description": {
+    "message": "Verbessern Sie Ihr Felo Search-Erlebnis mit Tastenkombinationen und Schnellzugriffstasten für die Felo Search-Website."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Diese Seite mit Felo Search zusammenfassen"
+  }
+}

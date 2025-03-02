@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "جعبه ابزار جستجوی Felo"
+  },
+  "tool_description": {
+    "message": "تجربه جستجوی Felo شما را با میانبرها و دکمه‌های دسترسی سریع برای وب‌سایت Felo Search بهبود می‌بخشد."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "خلاصه‌سازی این صفحه با Felo Search"
+  }
+}

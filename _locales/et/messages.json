@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Felo Search Tööriistakomplekt"
+  },
+  "tool_description": {
+    "message": "Täiustab teie Felo Search kogemust kiirklahvide ja kiirligipääsu nuppudega Felo Search veebisaidile."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Tee sellest lehest kokkuvõte Felo Search abil"
+  }
+}

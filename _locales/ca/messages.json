@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Caixa d'Eines Felo Search"
+  },
+  "tool_description": {
+    "message": "Millora la teva experiència amb Felo Search amb dreceres i botons d'accés ràpid per al lloc web de Felo Search."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Resumeix aquesta pàgina amb Felo Search"
+  }
+}

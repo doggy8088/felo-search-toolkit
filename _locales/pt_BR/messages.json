@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Kit de Ferramentas Felo Search"
+  },
+  "tool_description": {
+    "message": "Melhore sua experiência com o Felo Search com atalhos e botões de acesso rápido para o site do Felo Search."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Resumir esta página com o Felo Search"
+  }
+}

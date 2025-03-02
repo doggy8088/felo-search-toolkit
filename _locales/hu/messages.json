@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Felo Search Eszköztár"
+  },
+  "tool_description": {
+    "message": "Javítsa Felo Search élményét gyorsbillentyűkkel és gyors hozzáférési gombokkal a Felo Search weboldalhoz."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Összefoglalja ezt az oldalt a Felo Search segítségével"
+  }
+}

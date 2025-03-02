@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Caja de Herramientas Felo Search"
+  },
+  "tool_description": {
+    "message": "Mejora tu experiencia de Felo Search con atajos y botones de acceso rápido para el sitio web de Felo Search."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Resumir esta página con Felo Search"
+  }
+}

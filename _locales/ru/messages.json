@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Felo Search Набор Инструментов"
+  },
+  "tool_description": {
+    "message": "Улучшите свой опыт работы с Felo Search с помощью горячих клавиш и кнопок быстрого доступа к сайту Felo Search."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Суммировать эту страницу с помощью Felo Search"
+  }
+}
