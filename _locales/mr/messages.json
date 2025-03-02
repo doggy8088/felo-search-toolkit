@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Felo शोध टूलकिट"
+  },
+  "tool_description": {
+    "message": "Felo शोध वेबसाइटसाठी शॉर्टकट आणि क्विक अॅक्सेस बटणांसह तुमचा Felo शोध अनुभव वाढवतो."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "या पृष्ठाचा Felo शोधसह सारांश करा"
+  }
+}

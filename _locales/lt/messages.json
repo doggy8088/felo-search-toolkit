@@ -1,14 +1,14 @@
 {
   "tool_name": {
-    "message": "Felo Search Įrankių Rinkinys"
+    "message": "Felo paieškos įrankių rinkinys"
   },
   "tool_description": {
-    "message": "Patobulinkite savo Felo Search patirtį su spartieji klavišai ir greito prieigos mygtukais Felo Search svetainei."
+    "message": "Pagerina jūsų Felo paieškos patirtį su spartaisiais klavišais ir greitos prieigos mygtukais Felo paieškos svetainėje."
   },
   "tool_author": {
     "message": "Will Huang"
   },
   "summary_this_page": {
-    "message": "Apibendrinti šį puslapį su Felo Search"
+    "message": "Apibendrinti šį puslapį su Felo paieška"
   }
 }

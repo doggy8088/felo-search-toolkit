@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "ערכת כלים של Felo Search"
+  },
+  "tool_description": {
+    "message": "משפר את חוויית החיפוש שלך ב-Felo עם קיצורי דרך וכפתורי גישה מהירה לאתר Felo Search."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "סכם דף זה עם Felo Search"
+  }
+}
