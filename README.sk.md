@@ -1,6 +1,6 @@
 # Sada Nástrojov Felo Search
 
-Zlepšuje používateľskú skúsenosť webovej stránky Felo Search. V súčasnosti pridáva niekoľko funkcií klávesových skratiek na webovú stránku [Felo Search](https://felo.ai) a v budúcnosti môžu byť pridané ďalšie funkcie na zlepšenie UX.
+Vylepšuje používateľskú skúsenosť webovej stránky Felo Search. V súčasnosti pridáva niekoľko funkcií klávesových skratiek na webovú stránku [Felo Search](https://felo.ai) a v budúcnosti môžu byť pridané ďalšie funkcie na zlepšenie UX.
 
 V budúcnosti budú vydané ďalšie užitočné funkcie a všetkých pozývame, aby prispeli svojimi nápadmi a návrhmi.
 

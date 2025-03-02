@@ -1,14 +1,14 @@
 {
-  "tool_name": {
-    "message": "مجموعة أدوات Felo Search"
-  },
-  "tool_description": {
-    "message": "حسن تجربتك مع Felo Search باستخدام اختصارات ولوحات الوصول السريع لموقع Felo Search."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "لخص هذه الصفحة باستخدام Felo Search"
-  }
+    "tool_name": {
+        "message": "مجموعة أدوات Felo Search"
+    },
+    "tool_description": {
+        "message": "يحسن تجربتك مع Felo Search باستخدام اختصارات ولوحات الوصول السريع لموقع Felo Search."
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "لخص هذه الصفحة باستخدام Felo Search"
+    }
 }

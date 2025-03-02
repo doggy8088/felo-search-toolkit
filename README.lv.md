@@ -1,6 +1,6 @@
 # Felo Search Rīku Komplekts
 
-Uzlabo Felo Search vietnes lietotāja pieredzi. Pašlaik tas pievieno dažas īsceļu taustiņu funkcijas [Felo Search](https://felo.ai) vietnei, un nākotnē var tikt pievienotas vairāk UX uzlabojošas funkcijas.
+Uzlabo Felo Search vietnes lietotāja pieredzi, piedāvājot īsceļus un ātrās piekļuves pogas Felo Search vietnei. Nākotnē var tikt pievienotas vairāk funkciju, kas uzlabo lietotāja pieredzi.
 
 Nākotnē tiks izdotas vairāk noderīgas funkcijas, un mēs aicinām ikvienu sniegt idejas un ieteikumus.
 

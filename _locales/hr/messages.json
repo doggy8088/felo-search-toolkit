@@ -1,14 +1,14 @@
 {
-  "tool_name": {
-    "message": "Felo Search Komplet Alata"
-  },
-  "tool_description": {
-    "message": "Poboljšajte svoje Felo Search iskustvo s prečacima i gumbima za brzi pristup za Felo Search web stranicu."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "Sažmi ovu stranicu pomoću Felo Search"
-  }
+    "tool_name": {
+        "message": "Felo Search Komplet Alata"
+    },
+    "tool_description": {
+        "message": "Poboljšajte svoje Felo Search iskustvo s prečacima i gumbima za brzi pristup za Felo Search web stranicu."
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Sažmi ovu stranicu pomoću Felo Search"
+    }
 }

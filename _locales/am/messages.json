@@ -1,14 +1,14 @@
 {
-  "tool_name": {
-    "message": "ፌሎ ፍለጋ መሳሪያዎች ስብስብ"
-  },
-  "tool_description": {
-    "message": "ለፌሎ ፍለጋ ድር ጣቢያ አቋራጭ መንገዶችን እና የፍጥነት መዳረሻ አዝራሮችን በመጨመር የፌሎ ፍለጋ ተሞክሮዎን ያሻሽላል።"
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "ይህን ገጽ በፌሎ ፍለጋ ይጠቅልሉ"
-  }
+    "tool_name": {
+        "message": "ፌሎ ፍለጋ መሳሪያዎች ስብስብ"
+    },
+    "tool_description": {
+        "message": "ለፌሎ ፍለጋ ድር ጣቢያ አቋራጭ መንገዶችን እና የፍጥነት መዳረሻ አዝራሮችን በመጨመር የፌሎ ፍለጋ ተሞክሮዎን ያሻሽላል።"
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "ይህን ገጽ በፌሎ ፍለጋ ይጠቅልሉ"
+    }
 }

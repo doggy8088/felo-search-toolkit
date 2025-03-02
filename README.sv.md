@@ -1,6 +1,6 @@
 # Felo Search Verktygslåda
 
-Förbättrar användarupplevelsen av Felo Search-webbplatsen. För närvarande lägger den till några snabbtangentfunktioner till [Felo Search](https://felo.ai)-webbplatsen, och fler UX-förbättrande funktioner kan läggas till i framtiden.
+Förbättra användarupplevelsen av Felo Search-webbplatsen. För närvarande lägger den till några snabbtangentfunktioner till [Felo Search](https://felo.ai)-webbplatsen, och fler UX-förbättrande funktioner kan läggas till i framtiden.
 
 Fler användbara funktioner kommer att släppas i framtiden, och vi välkomnar alla att bidra med idéer och förslag.
 

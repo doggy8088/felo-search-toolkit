@@ -1,14 +1,14 @@
 {
-  "tool_name": {
-    "message": "Felo Search Toolkit"
-  },
-  "tool_description": {
-    "message": "เพิ่มประสิทธิภาพประสบการณ์การใช้ Felo Search ของคุณด้วยทางลัดและปุ่มเข้าถึงด่วนสำหรับเว็บไซต์ Felo Search"
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "สรุปหน้านี้ด้วย Felo Search"
-  }
+    "tool_name": {
+        "message": "Felo Search Toolkit"
+    },
+    "tool_description": {
+        "message": "เพิ่มประสิทธิภาพประสบการณ์การใช้ Felo Search ของคุณด้วยทางลัดและปุ่มเข้าถึงด่วนสำหรับเว็บไซต์ Felo Search"
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "สรุปหน้านี้ด้วย Felo Search"
+    }
 }

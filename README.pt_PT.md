@@ -1,4 +1,4 @@
-# Conjunto de Ferramentas Felo Search
+# Felo Search Ferramenta Universal
 
 Melhora a experiência do utilizador do site Felo Search. Atualmente, adiciona algumas funções de atalho de teclado ao site [Felo Search](https://felo.ai), e mais funcionalidades de melhoria de UX podem ser adicionadas no futuro.
 
