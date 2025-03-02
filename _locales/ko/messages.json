@@ -1,14 +1,14 @@
 {
-    "tool_name": {
-        "message": "Felo Search 만능 도구 상자"
-    },
-    "tool_description": {
-        "message": "Felo Search 웹사이트의 사용 경험을 향상시키고 단축키와 Felo Search 웹사이트를 빠르게 여는 버튼을 제공합니다."
-    },
-    "tool_author": {
-        "message": "Will Huang"
-    },
-    "summary_this_page": {
-        "message": "Felo Search를 사용하여 이 페이지 요약"
-    }
+  "tool_name": {
+    "message": "Felo Search 도구 모음"
+  },
+  "tool_description": {
+    "message": "Felo Search 웹사이트를 위한 단축키와 빠른 접근 버튼으로 Felo Search 경험을 향상시키세요."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Felo Search로 이 페이지 요약하기"
+  }
 }

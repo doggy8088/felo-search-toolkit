@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Felo Search Työkalupakki"
+  },
+  "tool_description": {
+    "message": "Paranna Felo Search -kokemustasi pikanäppäimillä ja pikakuvakkeilla Felo Search -verkkosivustolle."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Tiivistä tämä sivu Felo Searchilla"
+  }
+}

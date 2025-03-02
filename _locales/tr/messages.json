@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Felo Search Araç Takımı"
+  },
+  "tool_description": {
+    "message": "Felo Search web sitesi için kısayollar ve hızlı erişim düğmeleriyle Felo Search deneyiminizi geliştirin."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Bu sayfayı Felo Search ile özetleyin"
+  }
+}

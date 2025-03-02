@@ -1,14 +1,14 @@
 {
   "tool_name": {
-    "message": "Felo Search 万能ツールキット"
+    "message": "Felo Search ツールキット"
   },
   "tool_description": {
-    "message": "Felo Search ウェブサイトの利用体験を向上させ、ショートカットキーや Felo Search ウェブサイトを素早く開くボタンを提供します。"
+    "message": "ショートカットとクイックアクセスボタンで Felo Search の使用体験を向上させましょう。"
   },
   "tool_author": {
-    "message": "Will 保哥"
+    "message": "Will Huang"
   },
   "summary_this_page": {
-    "message": "Felo Search を使用してこのページを要約"
+    "message": "このページを Felo Search で要約"
   }
 }

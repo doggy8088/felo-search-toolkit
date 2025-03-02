@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Boîte à Outils Felo Search"
+  },
+  "tool_description": {
+    "message": "Améliorez votre expérience Felo Search avec des raccourcis et des boutons d'accès rapide pour le site web Felo Search."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Résumer cette page avec Felo Search"
+  }
+}

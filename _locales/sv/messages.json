@@ -1,0 +1,14 @@
+{
+  "tool_name": {
+    "message": "Felo Search Verktygslåda"
+  },
+  "tool_description": {
+    "message": "Förbättra din Felo Search-upplevelse med genvägar och snabbåtkomstsknappar för Felo Search-webbplatsen."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Sammanfatta denna sida med Felo Search"
+  }
+}
