@@ -1,14 +1,14 @@
 {
-  "tool_name": {
-    "message": "Felo Search उपकरण किट"
-  },
-  "tool_description": {
-    "message": "Felo Search वेबसाइट के लिए शॉर्टकट और त्वरित पहुंच बटनों के साथ अपने Felo Search अनुभव को बेहतर बनाएं।"
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "Felo Search के साथ इस पेज का सारांश करें"
-  }
+    "tool_name": {
+        "message": "Felo Search उपकरण किट"
+    },
+    "tool_description": {
+        "message": "Felo Search वेबसाइट के उपयोगकर्ता अनुभव को बेहतर बनाता है, शॉर्टकट और त्वरित पहुंच बटनों के साथ।"
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Felo Search के साथ इस पेज का सारांश करें"
+    }
 }

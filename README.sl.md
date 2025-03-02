@@ -1,6 +1,6 @@
 # Nabor Orodij Felo Search
 
-Izboljša uporabniško izkušnjo spletne strani Felo Search. Trenutno dodaja nekaj funkcij bližnjičnih tipk na spletno stran [Felo Search](https://felo.ai), v prihodnosti pa se lahko dodajo še več funkcij za izboljšanje UX.
+Izboljšajte uporabniško izkušnjo spletne strani Felo Search. Trenutno dodaja funkcije bližnjic na spletno stran [Felo Search](https://felo.ai), v prihodnosti pa se lahko dodajo še več funkcij za izboljšanje UX.
 
 V prihodnosti bo izdanih več uporabnih funkcij in vse vabimo, da prispevajo svoje ideje in predloge.
 

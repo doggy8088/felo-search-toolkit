@@ -64,7 +64,7 @@ function showNotification(message, url) {
   chrome.notifications.create(url, {
     type: 'basic',
     iconUrl: chrome.runtime.getURL('/images/icon128.png'),
-    title: 'Felo Search 萬能工具箱',
+    title: '__MSG_tool_name__',
     message: message
   });
 }

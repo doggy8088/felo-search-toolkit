@@ -1,9 +1,9 @@
 {
   "tool_name": {
-    "message": "Felo Search ツールキット"
+    "message": "Felo Search 万能ツールキット"
   },
   "tool_description": {
-    "message": "ショートカットとクイックアクセスボタンで Felo Search の使用体験を向上させましょう。"
+    "message": "Felo Search ウェブサイトのユーザーエクスペリエンスを向上させます。ショートカットキーとクイックアクセスボタンで Felo Search の使用体験を向上させましょう。"
   },
   "tool_author": {
     "message": "Will Huang"

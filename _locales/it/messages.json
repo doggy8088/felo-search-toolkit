@@ -1,0 +1,14 @@
+{
+    "tool_name": {
+        "message": "Felo Search Strumento Universale"
+    },
+    "tool_description": {
+        "message": "Migliora l'esperienza utente del sito Felo Search, fornendo scorciatoie e pulsanti per aprire rapidamente il sito Felo Search."
+    },
+    "tool_author": {
+        "message": "Will"
+    },
+    "summary_this_page": {
+        "message": "Usa Felo Search per riassumere questa pagina"
+    }
+}
