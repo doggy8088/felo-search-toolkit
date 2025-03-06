@@ -5,7 +5,7 @@ Simply zip whole folder as a zip file and upload to [Chrome Web Store](https://c
 ## Package
 
 ```sh
-$filePath = "FeloSearchToolkitExtension_v0.14.0.zip"
+$filePath = "FeloSearchToolkitExtension_v0.15.0.zip"
 7z a $filePath _locales images src CHANGELOG.md manifest.json README.*
 (Get-ChildItem -Path . -Filter $filePath -Recurse | Select-Object -ExpandProperty FullName) | Set-Clipboard
 ```

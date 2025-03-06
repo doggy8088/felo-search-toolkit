@@ -48,7 +48,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "summaryUrl") {
     let prompt;
     if (domain === "www.youtube.com" || domain === "youtube.com") {
-      prompt = `${tab.title}\n${tab.url}\nGive a bullet-point summary of the main arguments and evidence in this text.`;
+      const cleanedTitle = cleanYouTubeTitle(tab.title);
+      prompt = `${cleanedTitle}\n${tab.url}\nGive a bullet-point summary of the main arguments and evidence in this text.`;
     } else {
       prompt = `${tab.title}\n${tab.url}\nGive a bullet-point summary of the main arguments and evidence in this text.`;
     }
@@ -67,4 +68,9 @@ function showNotification(message, url) {
     title: 'Felo Search 萬能工具箱',
     message: message
   });
+}
+
+function cleanYouTubeTitle(title) {
+  // 只去除標題開頭的未讀數字，使用 ^ 確保只匹配開頭
+  return title.replace(/^\(\d+\)\s*/, '').trim();
 }
