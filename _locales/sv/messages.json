@@ -1,14 +1,48 @@
 {
   "tool_name": {
-    "message": "Felo Search Verktygslåda"
+    "message": "Felo Search Verktygssamling"
   },
   "tool_description": {
-    "message": "Förbättra din Felo Search-upplevelse med genvägar och snabbåtkomstsknappar för Felo Search-webbplatsen."
+    "message": "Förbättrar din Felo Search-upplevelse med genvägar och snabbåtkomstknappar för Felo Search-webbplatsen."
   },
   "tool_author": {
     "message": "Will Huang"
   },
   "summary_this_page": {
     "message": "Sammanfatta denna sida med Felo Search"
+  },
+  "options_title": {
+    "message": "Alternativ"
+  },
+  "options_summary_prompt_label": {
+    "message": "Sammanfattningsprompt:"
+  },
+  "options_save_button": {
+    "message": "Spara"
+  },
+  "options_reset_button": {
+    "message": "Återställ"
+  },
+  "options_save_success": {
+    "message": "Inställningarna sparade"
+  },
+  "options_reset_success": {
+    "message": "Inställningarna återställda till standardvärden"
+  },
+  "domain_excluded_notification": {
+    "message": "Denna domän kan inte sammanfattas med Felo Search: $DOMAIN$",
+    "placeholders": {
+      "domain": {
+        "content": "$1"
+      }
+    }
+  },
+  "ip_excluded_notification": {
+    "message": "Denna IP-adress kan inte sammanfattas med Felo Search: $IP$",
+    "placeholders": {
+      "ip": {
+        "content": "$1"
+      }
+    }
   }
 }
