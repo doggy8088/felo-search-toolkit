@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felo Search 選項</title>
+    <script src="options.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-lg mx-auto bg-white rounded-lg shadow-md p-6">
+        <h1 class="text-2xl font-semibold text-gray-800 mb-4">Felo Search 選項</h1>
+        <label for="summaryPrompt" class="block text-gray-700 font-medium mb-2">摘要提示詞:</label>
+        <textarea id="summaryPrompt" autofocus class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="4"></textarea>
+        <button id="saveButton" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+            儲存
+        </button>
+    </div>
+</body>
+</html>
