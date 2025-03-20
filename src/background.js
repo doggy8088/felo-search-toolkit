@@ -47,11 +47,12 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
   if (info.menuItemId === "summaryUrl") {
     let prompt;
+    let summaryPrompt = 'Give a bullet-point summary of the main arguments and evidence in this text.';
     if (domain === "www.youtube.com" || domain === "youtube.com") {
       const cleanedTitle = cleanYouTubeTitle(tab.title);
-      prompt = `${cleanedTitle}\n${tab.url}\nGive a bullet-point summary of the main arguments and evidence in this text.`;
+      prompt = `${cleanedTitle}\n${tab.url}\n${summaryPrompt}`;
     } else {
-      prompt = `${tab.title}\n${tab.url}\nGive a bullet-point summary of the main arguments and evidence in this text.`;
+      prompt = `${tab.title}\n${tab.url}\n${summaryPrompt}`;
     }
     chrome.tabs.create({ url: `https://felo.ai/?invite=dOLn1YloyaD3j&mode=verbose&q=${encodeURIComponent(prompt)}` });
   }
