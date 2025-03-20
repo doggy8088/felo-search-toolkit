@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const toast = document.getElementById("toast");
     const toastMessage = document.getElementById("toastMessage");
 
-    // 預設的摘要提示詞
-    const DEFAULT_SUMMARY_PROMPT = "Give a bullet-point summary of the main arguments and evidence in this text.";
+    // 從 i18n 獲取預設的摘要提示詞
+    const DEFAULT_SUMMARY_PROMPT = chrome.i18n.getMessage("default_summary_prompt") || "Give a bullet-point summary of the main arguments and evidence in this text.";
 
     // 從 storage 讀取現有的 summaryPrompt
     chrome.storage.sync.get("summaryPrompt", ({ summaryPrompt }) => {
