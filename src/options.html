@@ -3,18 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felo Search 選項</title>
+    <title data-i18n="options_title">Felo Search 選項</title>
     <script src="options.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 p-6">
-    <div class="max-w-lg mx-auto bg-white rounded-lg shadow-md p-6">
-        <h1 class="text-2xl font-semibold text-gray-800 mb-4">Felo Search 選項</h1>
-        <label for="summaryPrompt" class="block text-gray-700 font-medium mb-2">摘要提示詞:</label>
-        <textarea id="summaryPrompt" autofocus class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="4"></textarea>
-        <button id="saveButton" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
-            儲存
-        </button>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6 text-lg">
+    <div class="w-full max-w-xl bg-white rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-4" data-i18n="options_title">選項設定</h1>
+
+        <div class="mb-6">
+            <label for="summaryPrompt" class="block text-gray-700 font-medium mb-2 text-xl" data-i18n="options_summary_prompt_label">摘要提示詞:</label>
+            <textarea
+                id="summaryPrompt"
+                autofocus
+                class="w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 p-3 transition-all text-lg"
+                rows="6"></textarea>
+        </div>
+
+        <div class="flex space-x-4">
+            <button
+                id="saveButton"
+                class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-5 rounded-md transition-colors duration-200 flex items-center justify-center text-lg"
+                data-i18n="options_save_button">
+                儲存
+            </button>
+            <button
+                id="resetButton"
+                class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-5 rounded-md transition-colors duration-200 flex items-center justify-center text-lg"
+                data-i18n="options_reset_button">
+                重設
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast 通知元素 -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-gray-800 text-white py-3 px-6 rounded-lg shadow-lg transform translate-y-24 opacity-0 transition-all duration-300 text-lg">
+        <span id="toastMessage"></span>
     </div>
 </body>
 </html>
