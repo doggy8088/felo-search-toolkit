@@ -1,0 +1,48 @@
+{
+  "tool_name": {
+    "message": "Felo Search Toolkit"
+  },
+  "tool_description": {
+    "message": "Migliora la tua esperienza con Felo Search grazie a scorciatoie e pulsanti di accesso rapido per il sito web Felo Search."
+  },
+  "tool_author": {
+    "message": "Will Huang"
+  },
+  "summary_this_page": {
+    "message": "Riassumi questa pagina con Felo Search"
+  },
+  "options_title": {
+    "message": "Opzioni"
+  },
+  "options_summary_prompt_label": {
+    "message": "Prompt di riepilogo:"
+  },
+  "options_save_button": {
+    "message": "Salva"
+  },
+  "options_reset_button": {
+    "message": "Ripristina"
+  },
+  "options_save_success": {
+    "message": "Impostazioni salvate"
+  },
+  "options_reset_success": {
+    "message": "Impostazioni ripristinate ai valori predefiniti"
+  },
+  "domain_excluded_notification": {
+    "message": "Questo dominio non può essere riassunto con Felo Search: $DOMAIN$",
+    "placeholders": {
+      "domain": {
+        "content": "$1"
+      }
+    }
+  },
+  "ip_excluded_notification": {
+    "message": "Questo indirizzo IP non può essere riassunto con Felo Search: $IP$",
+    "placeholders": {
+      "ip": {
+        "content": "$1"
+      }
+    }
+  }
+}
