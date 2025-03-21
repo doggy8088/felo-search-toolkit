@@ -1,14 +1,48 @@
 {
-  "tool_name": {
+    "tool_name": {
     "message": "ఫెలో సెర్చ్ టూల్‌కిట్"
-  },
-  "tool_description": {
+    },
+    "tool_description": {
     "message": "ఫెలో సెర్చ్ వెబ్‌సైట్ కోసం షార్ట్‌కట్లు మరియు త్వరిత ప్రాప్తి బటన్లతో మీ ఫెలో సెర్చ్ అనుభవాన్ని మెరుగుపరుస్తుంది."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "ఈ పేజీని ఫెలో సెర్చ్‌తో సంగ్రహించండి"
-  }
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "ఈ పేజీని Felo శోధనతో సారాంశం చేయండి"
+    },
+    "options_title": {
+        "message": "ఎంపికలు"
+    },
+    "options_summary_prompt_label": {
+        "message": "సారాంశ ప్రాంప్ట్:"
+    },
+    "options_save_button": {
+        "message": "సేవ్ చేయండి"
+    },
+    "options_reset_button": {
+        "message": "రీసెట్ చేయండి"
+    },
+    "options_save_success": {
+        "message": "సెట్టింగ్‌లు సేవ్ చేయబడ్డాయి"
+    },
+    "options_reset_success": {
+        "message": "సెట్టింగ్‌లు డిఫాల్ట్ విలువలకు రీసెట్ చేయబడ్డాయి"
+    },
+    "domain_excluded_notification": {
+        "message": "ఈ డొమైన్‌ని Felo శోధనతో సారాంశం చేయలేరు: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "ఈ IP చిరునామాని Felo శోధనతో సారాంశం చేయలేరు: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
+    }
 }
