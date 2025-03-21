@@ -13,6 +13,8 @@ chrome.runtime.onInstalled.addListener(() => {
     chrome.tabs.create({ url: "https://felo.ai/?invite=dOLn1YloyaD3j" });
   });
 
+  // 初始化 summaryPrompt 的預設值
+  // chrome.storage.sync.set({ summaryPrompt: chrome.i18n.getMessage("default_summary_prompt") });
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
@@ -33,7 +35,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   );
 
   if (isExcludedDomain()) {
-    showNotification(`此域名 ${domain} 無法使用 Felo Search 總結`);
+    showNotification(chrome.i18n.getMessage("domain_excluded_notification", [domain]));
     return;
   }
 
@@ -41,19 +43,21 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   const isPrivateIP = (ip) => /^(10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.|192\.168\.)/.test(ip);
 
   if (isPrivateIP(domain)) {
-    showNotification(`此 IP 地址 ${domain} 無法使用 Felo Search 總結`);
+    showNotification(chrome.i18n.getMessage("ip_excluded_notification", [domain]));
     return;
   }
 
   if (info.menuItemId === "summaryUrl") {
-    let prompt;
-    if (domain === "www.youtube.com" || domain === "youtube.com") {
-      const cleanedTitle = cleanYouTubeTitle(tab.title);
-      prompt = `${cleanedTitle}\n${tab.url}\nGive a bullet-point summary of the main arguments and evidence in this text.`;
-    } else {
-      prompt = `${tab.title}\n${tab.url}\nGive a bullet-point summary of the main arguments and evidence in this text.`;
-    }
-    chrome.tabs.create({ url: `https://felo.ai/?invite=dOLn1YloyaD3j&mode=verbose&q=${encodeURIComponent(prompt)}` });
+    chrome.storage.sync.get("summaryPrompt", ({ summaryPrompt }) => {
+      let prompt;
+      if (domain === "www.youtube.com" || domain === "youtube.com") {
+        const cleanedTitle = cleanYouTubeTitle(tab.title);
+        prompt = `${cleanedTitle}\n${tab.url}\n${summaryPrompt}`;
+      } else {
+        prompt = `${tab.title}\n${tab.url}\n${summaryPrompt}`;
+      }
+      chrome.tabs.create({ url: `https://felo.ai/?invite=dOLn1YloyaD3j&mode=verbose&q=${encodeURIComponent(prompt)}` });
+    });
   }
 
 });
@@ -65,7 +69,7 @@ function showNotification(message, url) {
   chrome.notifications.create(url, {
     type: 'basic',
     iconUrl: chrome.runtime.getURL('/images/icon128.png'),
-    title: 'Felo Search 萬能工具箱',
+    title: chrome.i18n.getMessage("tool_name"),
     message: message
   });
 }

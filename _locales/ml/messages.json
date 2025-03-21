@@ -1,14 +1,48 @@
 {
-  "tool_name": {
+    "tool_name": {
     "message": "ഫെലോ സെർച്ച് ടൂൾകിറ്റ്"
-  },
-  "tool_description": {
+    },
+    "tool_description": {
     "message": "ഫെലോ സെർച്ച് വെബ്‌സൈറ്റിനായുള്ള കുറുക്കുവഴികളും ദ്രുത ആക്‌സസ് ബട്ടണുകളും ഉപയോഗിച്ച് നിങ്ങളുടെ ഫെലോ സെർച്ച് അനുഭവം മെച്ചപ്പെടുത്തുന്നു."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "ഈ പേജ് ഫെലോ സെർച്ചുമായി സംഗ്രഹിക്കുക"
-  }
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Felo Search ഉപയോഗിച്ച് ഈ പേജ് സംഗ്രഹിക്കുക"
+    },
+    "options_title": {
+        "message": "ഓപ്ഷനുകൾ"
+    },
+    "options_summary_prompt_label": {
+        "message": "സംഗ്രഹ പ്രോംപ്റ്റ്:"
+    },
+    "options_save_button": {
+        "message": "സേവ് ചെയ്യുക"
+    },
+    "options_reset_button": {
+        "message": "റീസെറ്റ് ചെയ്യുക"
+    },
+    "options_save_success": {
+        "message": "ക്രമീകരണങ്ങൾ സേവ് ചെയ്തു"
+    },
+    "options_reset_success": {
+        "message": "ക്രമീകരണങ്ങൾ സ്ഥിരസ്ഥിതിയിലേക്ക് പുനഃസജ്ജമാക്കി"
+    },
+    "domain_excluded_notification": {
+        "message": "ഈ ഡൊമെയിൻ Felo Search ഉപയോഗിച്ച് സംഗ്രഹിക്കാൻ കഴിയില്ല: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "ഈ IP വിലാസം Felo Search ഉപയോഗിച്ച് സംഗ്രഹിക്കാൻ കഴിയില്ല: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
+    }
 }

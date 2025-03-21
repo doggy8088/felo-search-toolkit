@@ -3,34 +3,34 @@
     "message": "Felo Search Toolkit"
   },
   "tool_description": {
-    "message": "Mejora tu experiencia de Felo Search con atajos y botones de acceso rápido para el sitio web de Felo Search."
+    "message": "Migliora la tua esperienza con Felo Search grazie a scorciatoie e pulsanti di accesso rapido per il sito web Felo Search."
   },
   "tool_author": {
     "message": "Will Huang"
   },
   "summary_this_page": {
-    "message": "Resumir esta página con Felo Search"
+    "message": "Riassumi questa pagina con Felo Search"
   },
   "options_title": {
-    "message": "Opciones"
+    "message": "Opzioni"
   },
   "options_summary_prompt_label": {
-    "message": "Indicación de resumen:"
+    "message": "Prompt di riepilogo:"
   },
   "options_save_button": {
-    "message": "Guardar"
+    "message": "Salva"
   },
   "options_reset_button": {
-    "message": "Restablecer"
+    "message": "Ripristina"
   },
   "options_save_success": {
-    "message": "Configuración guardada"
+    "message": "Impostazioni salvate"
   },
   "options_reset_success": {
-    "message": "Configuración restablecida a valores predeterminados"
+    "message": "Impostazioni ripristinate ai valori predefiniti"
   },
   "domain_excluded_notification": {
-    "message": "Este dominio no puede ser resumido con Felo Search: $DOMAIN$",
+    "message": "Questo dominio non può essere riassunto con Felo Search: $DOMAIN$",
     "placeholders": {
       "domain": {
         "content": "$1"
@@ -38,7 +38,7 @@
     }
   },
   "ip_excluded_notification": {
-    "message": "Esta dirección IP no puede ser resumida con Felo Search: $IP$",
+    "message": "Questo indirizzo IP non può essere riassunto con Felo Search: $IP$",
     "placeholders": {
       "ip": {
         "content": "$1"

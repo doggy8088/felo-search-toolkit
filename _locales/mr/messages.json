@@ -1,14 +1,48 @@
 {
-  "tool_name": {
+    "tool_name": {
     "message": "Felo शोध टूलकिट"
-  },
-  "tool_description": {
+    },
+    "tool_description": {
     "message": "Felo शोध वेबसाइटसाठी शॉर्टकट आणि क्विक अॅक्सेस बटणांसह तुमचा Felo शोध अनुभव वाढवतो."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "या पृष्ठाचा Felo शोधसह सारांश करा"
-  }
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Felo Search सह या पृष्ठाचा सारांश करा"
+    },
+    "options_title": {
+        "message": "पर्याय"
+    },
+    "options_summary_prompt_label": {
+        "message": "सारांश प्रॉम्प्ट:"
+    },
+    "options_save_button": {
+        "message": "जतन करा"
+    },
+    "options_reset_button": {
+        "message": "रीसेट करा"
+    },
+    "options_save_success": {
+        "message": "सेटिंग्ज जतन केली"
+    },
+    "options_reset_success": {
+        "message": "सेटिंग्ज डीफॉल्टवर रीसेट केली"
+    },
+    "domain_excluded_notification": {
+        "message": "हे डोमेन Felo Search सह सारांश करता येत नाही: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "हा IP पत्ता Felo Search सह सारांश करता येत नाही: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
+    }
 }

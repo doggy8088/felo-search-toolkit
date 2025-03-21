@@ -1,14 +1,48 @@
 {
-  "tool_name": {
+    "tool_name": {
     "message": "ಫೆಲೋ ಸರ್ಚ್ ಟೂಲ್‌ಕಿಟ್"
-  },
-  "tool_description": {
+    },
+    "tool_description": {
     "message": "ಫೆಲೋ ಸರ್ಚ್ ವೆಬ್‌ಸೈಟ್‌ಗಾಗಿ ಶಾರ್ಟ್‌ಕಟ್‌ಗಳು ಮತ್ತು ತ್ವರಿತ ಪ್ರವೇಶ ಬಟನ್‌ಗಳೊಂದಿಗೆ ನಿಮ್ಮ ಫೆಲೋ ಸರ್ಚ್ ಅನುಭವವನ್ನು ವರ್ಧಿಸುತ್ತದೆ."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "ಈ ಪುಟವನ್ನು ಫೆಲೋ ಸರ್ಚ್‌ನೊಂದಿಗೆ ಸಾರಾಂಶಗೊಳಿಸಿ"
-  }
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Felo Search ನೊಂದಿಗೆ ಈ ಪುಟವನ್ನು ಸಾರಾಂಶಗೊಳಿಸಿ"
+    },
+    "options_title": {
+        "message": "ಆಯ್ಕೆಗಳು"
+    },
+    "options_summary_prompt_label": {
+        "message": "ಸಾರಾಂಶ ಪ್ರಾಂಪ್ಟ್:"
+    },
+    "options_save_button": {
+        "message": "ಉಳಿಸಿ"
+    },
+    "options_reset_button": {
+        "message": "ಮರುಹೊಂದಿಸಿ"
+    },
+    "options_save_success": {
+        "message": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಉಳಿಸಲಾಗಿದೆ"
+    },
+    "options_reset_success": {
+        "message": "ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಡೀಫಾಲ್ಟ್‌ಗೆ ಮರುಹೊಂದಿಸಲಾಗಿದೆ"
+    },
+    "domain_excluded_notification": {
+        "message": "ಈ ಡೊಮೇನ್ ಅನ್ನು Felo Search ನೊಂದಿಗೆ ಸಾರಾಂಶಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "ಈ IP ವಿಳಾಸವನ್ನು Felo Search ನೊಂದಿಗೆ ಸಾರಾಂಶಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
+    }
 }

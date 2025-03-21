@@ -3,11 +3,12 @@
   "name": "__MSG_tool_name__",
   "description": "__MSG_tool_description__",
   "author": "__MSG_tool_author__",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "default_locale": "zh_TW",
   "background": {
     "service_worker": "src/background.js"
   },
+  "options_page": "src/options.html",
   "action": {
     "default_icon": {
       "16": "images/icon16.png",
@@ -29,6 +30,7 @@
   "permissions": [
     "notifications",
     "activeTab",
-    "contextMenus"
+    "contextMenus",
+    "storage"
   ]
 }

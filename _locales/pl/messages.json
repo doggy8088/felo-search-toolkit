@@ -1,14 +1,48 @@
 {
   "tool_name": {
-    "message": "Zestaw Narzędzi Felo Search"
+    "message": "Felo Search Toolkit"
   },
   "tool_description": {
-    "message": "Ulepsz swoje doświadczenie z Felo Search dzięki skrótom i przyciskom szybkiego dostępu do strony Felo Search."
+    "message": "Ulepsza korzystanie z Felo Search dzięki skrótom i przyciskom szybkiego dostępu do strony Felo Search."
   },
   "tool_author": {
     "message": "Will Huang"
   },
   "summary_this_page": {
-    "message": "Podsumuj tę stronę za pomocą Felo Search"
+    "message": "Podsumuj tę stronę z pomocą Felo Search"
+  },
+  "options_title": {
+    "message": "Opcje"
+  },
+  "options_summary_prompt_label": {
+    "message": "Podpowiedź podsumowania:"
+  },
+  "options_save_button": {
+    "message": "Zapisz"
+  },
+  "options_reset_button": {
+    "message": "Zresetuj"
+  },
+  "options_save_success": {
+    "message": "Ustawienia zapisane"
+  },
+  "options_reset_success": {
+    "message": "Ustawienia zresetowane do wartości domyślnych"
+  },
+  "domain_excluded_notification": {
+    "message": "Ta domena nie może być podsumowana za pomocą Felo Search: $DOMAIN$",
+    "placeholders": {
+      "domain": {
+        "content": "$1"
+      }
+    }
+  },
+  "ip_excluded_notification": {
+    "message": "Ten adres IP nie może być podsumowany za pomocą Felo Search: $IP$",
+    "placeholders": {
+      "ip": {
+        "content": "$1"
+      }
+    }
   }
 }

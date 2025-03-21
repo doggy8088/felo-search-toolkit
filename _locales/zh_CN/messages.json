@@ -10,5 +10,39 @@
     },
     "summary_this_page": {
         "message": "使用 Felo Search 摘要此页面"
+    },
+    "options_title": {
+        "message": "选项设置"
+    },
+    "options_summary_prompt_label": {
+        "message": "摘要提示词:"
+    },
+    "options_save_button": {
+        "message": "保存"
+    },
+    "options_reset_button": {
+        "message": "重置"
+    },
+    "options_save_success": {
+        "message": "设置已保存"
+    },
+    "options_reset_success": {
+        "message": "设置已重置为默认值"
+    },
+    "domain_excluded_notification": {
+        "message": "此域名无法使用 Felo Search 总结: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "此 IP 地址无法使用 Felo Search 总结: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
     }
 }

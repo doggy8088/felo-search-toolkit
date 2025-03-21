@@ -1,14 +1,48 @@
 {
-  "tool_name": {
+    "tool_name": {
     "message": "Felo Search Комплет Алата"
-  },
-  "tool_description": {
+    },
+    "tool_description": {
     "message": "Унапредите своје Felo Search искуство са пречицама и дугмадима за брзи приступ за Felo Search веб сајт."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "Сумирајте ову страницу помоћу Felo Search"
-  }
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Сумирајте ову страницу помоћу Felo Search"
+    },
+    "options_title": {
+        "message": "Опције"
+    },
+    "options_summary_prompt_label": {
+        "message": "Упит за сажетак:"
+    },
+    "options_save_button": {
+        "message": "Сачувај"
+    },
+    "options_reset_button": {
+        "message": "Ресетуј"
+    },
+    "options_save_success": {
+        "message": "Подешавања су сачувана"
+    },
+    "options_reset_success": {
+        "message": "Подешавања су враћена на подразумеване вредности"
+    },
+    "domain_excluded_notification": {
+        "message": "Овај домен не може бити сумиран помоћу Felo Search: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "Ова IP адреса не може бити сумирана помоћу Felo Search: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
+    }
 }

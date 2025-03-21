@@ -1,14 +1,48 @@
 {
-  "tool_name": {
-    "message": "Felo Search Toolkit"
-  },
-  "tool_description": {
+    "tool_name": {
+        "message": "Felo Search Toolkit"
+    },
+    "tool_description": {
     "message": "Pagandahin ang iyong karanasan sa Felo Search gamit ang mga shortcut at quick access button para sa website ng Felo Search."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "I-summarize ang pahinang ito gamit ang Felo Search"
-  }
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Buuin ang buod ng pahinang ito gamit ang Felo Search"
+    },
+    "options_title": {
+        "message": "Mga Opsyon"
+    },
+    "options_summary_prompt_label": {
+        "message": "Prompt ng buod:"
+    },
+    "options_save_button": {
+        "message": "I-save"
+    },
+    "options_reset_button": {
+        "message": "I-reset"
+    },
+    "options_save_success": {
+        "message": "Na-save ang mga setting"
+    },
+    "options_reset_success": {
+        "message": "Na-reset ang mga setting sa default"
+    },
+    "domain_excluded_notification": {
+        "message": "Hindi maaaring buuin ang buod ng domain na ito gamit ang Felo Search: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "Hindi maaaring buuin ang buod ng IP address na ito gamit ang Felo Search: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
+    }
 }

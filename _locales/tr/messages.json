@@ -1,14 +1,48 @@
 {
-  "tool_name": {
+    "tool_name": {
     "message": "Felo Search Araç Takımı"
-  },
-  "tool_description": {
+    },
+    "tool_description": {
     "message": "Felo Search web sitesi için kısayollar ve hızlı erişim düğmeleriyle Felo Search deneyiminizi geliştirin."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "Bu sayfayı Felo Search ile özetleyin"
-  }
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Bu sayfayı Felo Search ile özetle"
+    },
+    "options_title": {
+        "message": "Seçenekler"
+    },
+    "options_summary_prompt_label": {
+        "message": "Özet istemi:"
+    },
+    "options_save_button": {
+        "message": "Kaydet"
+    },
+    "options_reset_button": {
+        "message": "Sıfırla"
+    },
+    "options_save_success": {
+        "message": "Ayarlar kaydedildi"
+    },
+    "options_reset_success": {
+        "message": "Ayarlar varsayılan değerlere sıfırlandı"
+    },
+    "domain_excluded_notification": {
+        "message": "Bu alan adı Felo Search ile özetlenemiyor: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "Bu IP adresi Felo Search ile özetlenemiyor: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
+    }
 }

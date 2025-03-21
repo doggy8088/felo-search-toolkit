@@ -1,14 +1,48 @@
 {
-  "tool_name": {
-    "message": "Felo Search Набор от Инструменти"
-  },
-  "tool_description": {
-    "message": "Подобрете вашето Felo Search изживяване с преки пътища и бутони за бърз достъп до уебсайта Felo Search."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "Обобщете тази страница с Felo Search"
-  }
+    "tool_name": {
+        "message": "Felo Search Набор от Инструменти"
+    },
+    "tool_description": {
+        "message": "Подобрете вашето Felo Search изживяване с преки пътища и бутони за бърз достъп до уебсайта Felo Search."
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Обобщете тази страница с Felo Search"
+    },
+    "options_title": {
+        "message": "Опции"
+    },
+    "options_summary_prompt_label": {
+        "message": "Подкана за обобщение:"
+    },
+    "options_save_button": {
+        "message": "Запази"
+    },
+    "options_reset_button": {
+        "message": "Нулиране"
+    },
+    "options_save_success": {
+        "message": "Настройките са запазени"
+    },
+    "options_reset_success": {
+        "message": "Настройките са възстановени по подразбиране"
+    },
+    "domain_excluded_notification": {
+        "message": "Този домейн не може да бъде обобщен с Felo Search: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "Този IP адрес не може да бъде обобщен с Felo Search: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
+    }
 }

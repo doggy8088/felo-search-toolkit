@@ -1,14 +1,48 @@
 {
-  "tool_name": {
-    "message": "Caixa d'Eines Felo Search"
-  },
-  "tool_description": {
-    "message": "Millora la teva experiència amb Felo Search amb dreceres i botons d'accés ràpid per al lloc web de Felo Search."
-  },
-  "tool_author": {
-    "message": "Will Huang"
-  },
-  "summary_this_page": {
-    "message": "Resumeix aquesta pàgina amb Felo Search"
-  }
+    "tool_name": {
+        "message": "Caixa d'Eines Felo Search"
+    },
+    "tool_description": {
+        "message": "Millora la teva experiència amb Felo Search amb dreceres i botons d'accés ràpid per al lloc web de Felo Search."
+    },
+    "tool_author": {
+        "message": "Will Huang"
+    },
+    "summary_this_page": {
+        "message": "Resumeix aquesta pàgina amb Felo Search"
+    },
+    "options_title": {
+        "message": "Opcions"
+    },
+    "options_summary_prompt_label": {
+        "message": "Indicador de resum:"
+    },
+    "options_save_button": {
+        "message": "Desa"
+    },
+    "options_reset_button": {
+        "message": "Restableix"
+    },
+    "options_save_success": {
+        "message": "S'han desat els paràmetres"
+    },
+    "options_reset_success": {
+        "message": "S'han restablert els paràmetres als valors predeterminats"
+    },
+    "domain_excluded_notification": {
+        "message": "Aquest domini no es pot resumir amb Felo Search: $DOMAIN$",
+        "placeholders": {
+            "domain": {
+                "content": "$1"
+            }
+        }
+    },
+    "ip_excluded_notification": {
+        "message": "Aquesta adreça IP no es pot resumir amb Felo Search: $IP$",
+        "placeholders": {
+            "ip": {
+                "content": "$1"
+            }
+        }
+    }
 }
