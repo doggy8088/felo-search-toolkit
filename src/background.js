@@ -14,7 +14,7 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 
   // 初始化 summaryPrompt 的預設值
-  chrome.storage.sync.set({ summaryPrompt: chrome.i18n.getMessage("default_summary_prompt") });
+  // chrome.storage.sync.set({ summaryPrompt: chrome.i18n.getMessage("default_summary_prompt") });
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
