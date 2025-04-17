@@ -1,6 +1,41 @@
 (async function () {
     'use strict';
 
+    let prompt = ''
+
+    try {
+        prompt = atou(location.hash.substring(1));
+        if (history.replaceState) {
+            history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        } else {
+            window.location.hash = '';
+        }
+    } catch {
+    }
+
+    if (!!prompt) {
+        setTimeout(() => {
+            const defaultInput = document.querySelector('main')?.querySelectorAll('textarea');
+            if (defaultInput?.length === 1) {
+                const textarea = defaultInput[0];
+                textarea.dispatchEvent(new Event('focus', { bubbles: true }));
+
+                // 這行是關鍵，不這樣就無法變更 textarea 的值
+                Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set.call(textarea, prompt);
+
+                // 這行也是關鍵，必須要送出 input 事件才能讓 textarea 的值寫回 React 元件的狀態
+                textarea.dispatchEvent(new Event('input', { bubbles: true }));
+
+                textarea.focus();
+                textarea.setSelectionRange(textarea.value.length, textarea.value.length); //將選擇範圍設定為文本的末尾
+                textarea.scrollTop = textarea.scrollHeight; // 自動捲動到最下方
+
+                const button = document.querySelector("button[type=submit]");
+                setTimeout(() => { button.click(); }, 200);
+            }
+        }, 0);
+    }
+
     function isCtrlOrMetaKeyPressed(event) {
         return event.ctrlKey || event.metaKey;
     }
@@ -190,8 +225,6 @@
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-
-
     async function clickButtonByText(buttonTexts) {
 
         window.page.WAIT_TIMEOUT = 0;
@@ -286,4 +319,84 @@
         window.page.WAIT_TIMEOUT = 5000;
     }
 
+    chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+        if (msg.action === 'getMarkdown') {
+            (async () => {
+                try {
+                    let html;
+
+                    // 取得選取範圍的 HTML
+                    const sel = document.getSelection();
+                    if (!sel || sel.isCollapsed) {
+                        // 沒有選取範圍，回傳空字串
+                        sendResponse({ markdown: '' });
+                        return;
+                    }
+
+                    // 有選取範圍，取得 HTML
+                    const range = sel.getRangeAt(0);
+                    const div = document.createElement('div');
+                    const clone = range.cloneContents();
+
+                    // 把所有相對連結都根據目前網址改成絕對連結
+                    const baseUrl = window.location.origin;
+                    const links = clone.querySelectorAll('a[href]');
+                    links.forEach(link => {
+                        if (!link.innerText.trim()) {
+                            link.remove();
+                            return;
+                        }
+                        const href = link.getAttribute('href');
+                        if (href && !href.startsWith('http')) {
+                            link.setAttribute('href', new URL(href, baseUrl).href);
+                        }
+                    });
+
+                    // 圖片連結也要改
+                    const images = clone.querySelectorAll('img[src]');
+                    images.forEach(img => {
+                        const src = img.getAttribute('src');
+                        if (src && !src.startsWith('http')) {
+                            img.setAttribute('src', new URL(src, baseUrl).href);
+                        }
+                    });
+
+                    div.appendChild(clone);
+                    div.querySelectorAll(
+                        'head, script, iframe, style, link, noscript, template, object, embed, meta, base, param, source, track, input[type="hidden"]'
+                    ).forEach(el => el.remove());
+
+                    html = div.innerHTML;
+
+                    // 轉 Markdown
+                    const turndownService = new TurndownService({
+                        headingStyle: 'atx',
+                        hr: '- - -',
+                        bulletListMarker: '-',
+                        codeBlockStyle: 'fenced',
+                        fence: '```',
+                        emDelimiter: '_',
+                        strongDelimiter: '**',
+                        linkStyle: 'inlined',
+                        linkReferenceStyle: 'full',
+                        br: '  ',
+                        preformattedCode: false
+                    });
+
+                    const markdown = turndownService.turndown(html);
+
+                    sendResponse({ markdown });
+                } catch (error) {
+                    console.error('getMarkdown error:', error);
+                    sendResponse({ markdown: '' });
+                }
+            })();
+            return true;
+        }
+    });
+
+    function atou(str) {
+        // 將 Base64 字串解碼回原始 UTF-8
+        return decodeURIComponent(escape(atob(str)));
+    }
 })();
