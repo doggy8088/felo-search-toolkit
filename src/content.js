@@ -228,10 +228,10 @@
                 return;
             }
 
-            // 按下 Ctrl+Delete 或 Command+Delete 快速刪除 Felo Search 聊天記錄
-            if (isCtrlOrMetaKeyPressed(event) && event.key === 'Delete') {
+            // 按下 Ctrl+Delete 或 Command+Delete 快速刪除 Felo Search 討論串
+            if (isCtrlOrMetaKeyPressed(event) && !event.altKey && event.key === 'Delete') {
                 // 如果是輸入欄位，就不要觸發
-                if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+                if (isInInputMode(event.target) && !!event.target.textContent && !confirm('是否要刪除本篇討論串？')) {
                     return;
                 }
 
@@ -289,12 +289,25 @@
             }
         });
 
-        function isInInputMode(event) {
-            var element = event.target;
+        /**
+         * 檢查給定的元素是否處於輸入模式。
+         * 如果元素是輸入欄位、文字區域、可編輯內容的元素，或是屬於 shadow DOM 的一部分，
+         * 則認為該元素處於輸入模式。
+         *
+         * @param {HTMLElement} element - 要檢查的元素。
+         * @returns {boolean} - 如果元素處於輸入模式則返回 true，否則返回 false。
+         */
+        function isInInputMode(element) {
+            // 如果元素是輸入欄位或文字區域，則處於輸入模式
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 return true;
             }
+            // 如果元素是可編輯內容，則處於輸入模式
             if (element.isContentEditable) {
+                return true;
+            }
+            // 如果元素屬於 shadow DOM 的一部分，則視為處於輸入模式 (也意味著不打算處理事件)
+            if (element.shadowRoot instanceof ShadowRoot || (element.getRootNode && element.getRootNode() instanceof ShadowRoot)) {
                 return true;
             }
             return false;
