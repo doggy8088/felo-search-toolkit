@@ -3,7 +3,7 @@
   "name": "__MSG_tool_name__",
   "description": "__MSG_tool_description__",
   "author": "__MSG_tool_author__",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "default_locale": "zh_TW",
   "background": {
     "service_worker": "src/background.js"
