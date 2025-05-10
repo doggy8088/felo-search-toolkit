@@ -1,8 +1,12 @@
 (async function () {
     'use strict';
 
+    let is_felo_page_enabled = false;
+
     if (window.location.hostname === 'felo.ai') {
         initialize_for_felo();
+
+        setInterval(check_for_felo_page_preview, 600);
     }
 
     chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
@@ -287,6 +291,18 @@
                     backdropBlur?.parentElement?.querySelector('button')?.click();
                 }
             }
+
+            // 按下 Alt+O 開啟第一個 iframe 網頁於新分頁
+            if (!isInInputMode(event.target) && !isCtrlOrMetaKeyPressed(event) && event.altKey && event.key === 'o') {
+                // 新增 alt+o 快捷鍵： open first iframe in new tab
+                // Add alt+o hotkey: open the first frame URL in a new tab
+                const frame = document.querySelector('iframe');
+                if (frame && frame.src) {
+                    window.open(frame.src, '_blank');
+                }
+                event.preventDefault();
+                return;
+            }
         });
 
         /**
@@ -415,6 +431,78 @@
             });
 
             window.page.WAIT_TIMEOUT = 5000;
+        }
+    }
+
+    function check_for_felo_page_preview() {
+        let felo_page_checker;
+
+        if (window.location.pathname.includes('/page/')) {
+            if (!!is_felo_page_enabled) return;
+
+            is_felo_page_enabled = true;
+
+            clearInterval(felo_page_checker);
+            felo_page_checker = setInterval(() => {
+                // if location.path contains /page/
+                let page_toolbar = document.querySelector('main').firstElementChild.firstElementChild;
+                if (!page_toolbar) return;
+
+                // find last button element of page_toolbar
+                let buttons = page_toolbar.querySelectorAll('button');
+                if (buttons.length === 0) return;
+
+                let last_button = buttons[buttons.length - 1];
+
+                const wrapperDiv = document.createElement('div');
+                wrapperDiv.className = 'inline-flex';
+
+                last_button.parentNode.insertBefore(wrapperDiv, last_button);
+                wrapperDiv.appendChild(last_button);
+
+                const clonedButton = last_button.cloneNode(true); // Clone with all descendants
+
+                // if clonedButton is disabled
+                if (clonedButton.disabled) return;
+
+                clonedButton.innerText = '';
+
+                // add SVG icon before text
+                // <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link "><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                const svgIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svgIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+                svgIcon.setAttribute("width", "24");
+                svgIcon.setAttribute("height", "24");
+                svgIcon.setAttribute("viewBox", "0 0 24 24");
+                svgIcon.setAttribute("fill", "none");
+                svgIcon.setAttribute("stroke", "currentColor");
+                svgIcon.setAttribute("stroke-width", "2");
+                svgIcon.setAttribute("stroke-linecap", "round");
+                svgIcon.setAttribute("stroke-linejoin", "round");
+                svgIcon.setAttribute("class", "lucide lucide-link");
+                const path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path1.setAttribute("d", "M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71");
+                const path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path2.setAttribute("d", "M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71");
+                svgIcon.appendChild(path1);
+                svgIcon.appendChild(path2);
+                clonedButton.insertBefore(svgIcon, clonedButton.firstChild);
+                clonedButton.style.marginRight = '5px';
+                clonedButton.title = 'Open in new tab (alt+o)';
+                clonedButton.addEventListener('click', () => {
+                    const firstIframe = document.querySelector('iframe');
+                    if (firstIframe && firstIframe.src) {
+                        window.open(firstIframe.src, '_blank');
+                    }
+                });
+
+                wrapperDiv.insertBefore(clonedButton, last_button);
+
+                clearInterval(felo_page_checker);
+            }, 60);
+        } else {
+            if (!!felo_page_checker) clearInterval(felo_page_checker);
+            is_felo_page_enabled = false;
         }
     }
 })();
