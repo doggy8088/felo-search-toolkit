@@ -445,27 +445,39 @@
             clearInterval(felo_page_checker);
             felo_page_checker = setInterval(() => {
                 // if location.path contains /page/
-                let page_toolbar = document.querySelector('main').firstElementChild.firstElementChild;
+                let page_toolbar = document.querySelector('main header');
                 if (!page_toolbar) return;
 
                 // find last button element of page_toolbar
-                let buttons = page_toolbar.querySelectorAll('button');
+                let sections = document.querySelectorAll('main header > div');
+                if (sections.length === 0) return;
+
+                let last_section = sections[sections.length - 1];
+
+                let buttons = last_section.querySelectorAll('button');
                 if (buttons.length === 0) return;
 
-                let last_button = buttons[buttons.length - 1];
 
-                const wrapperDiv = document.createElement('div');
-                wrapperDiv.className = 'inline-flex';
+                let first_button = buttons[0];
+                // 如果第一個按鈕的第二個子節點是文字且內容為「演示」，則只修改文字內容
+                if (
+                    first_button.childNodes.length > 1 &&
+                    first_button.childNodes[1].nodeType === Node.TEXT_NODE &&
+                    first_button.childNodes[1].textContent.trim() === '演示'
+                ) {
+                    first_button.childNodes[1].textContent = '預覽';
+                }
 
-                last_button.parentNode.insertBefore(wrapperDiv, last_button);
-                wrapperDiv.appendChild(last_button);
+                if (first_button.innerText === '展開頁面') return;
 
-                const clonedButton = last_button.cloneNode(true); // Clone with all descendants
+
+                const clonedButton = buttons[0].cloneNode(true); // Clone with all descendants
 
                 // if clonedButton is disabled
                 if (clonedButton.disabled) return;
 
                 clonedButton.innerText = '';
+                // clonedButton.innerText = '展開頁面';
 
                 // add SVG icon before text
                 // <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link "><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -496,7 +508,8 @@
                     }
                 });
 
-                wrapperDiv.insertBefore(clonedButton, last_button);
+                let wrapperDiv = buttons[0].parentElement;
+                wrapperDiv.insertBefore(clonedButton, buttons[0]);
 
                 clearInterval(felo_page_checker);
             }, 60);
