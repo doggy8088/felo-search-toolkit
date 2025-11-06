@@ -239,7 +239,8 @@
                     return;
                 }
 
-                await (await window.page.getByRole('button', undefined, document.querySelector('header')).last()).press('Enter');
+                // 從 header 找到倒數第二個按鈕，點擊它以開啟選單
+                await (await window.page.getByRole('button', undefined, document.querySelector('header')).nth(-2)).press('Enter');
                 await window.page.getByRole('menuitem', { name: ['刪除討論串', '删除帖子', '投稿を削除', 'Delete Thread'] }).click();
                 await window.page.getByRole('button', { name: ['確認', '确认', '確認', 'Confirm'] }).click()
 

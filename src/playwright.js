@@ -32,9 +32,22 @@
             return elements.length > 0 ? new Locator('', { resolvedElement: elements[elements.length - 1] }, this._page) : null;
         }
 
+        /**
+         * 取得第 n 個元素，支援負數索引（-1 代表最後一個）。
+         * Get the nth element, supports negative index (-1 means last).
+         * @param {number} index - 索引值，可為負數。
+         * @returns {Locator|null}
+         */
         async nth(index) {
             const elements = await this._resolveElements();
-            return elements[index] ? new Locator('', { resolvedElement: elements[index] }, this._page) : null;
+            const len = elements.length;
+            let realIndex = index;
+            if (index < 0) {
+                realIndex = len + index;
+            }
+            return (realIndex >= 0 && realIndex < len)
+                ? new Locator('', { resolvedElement: elements[realIndex] }, this._page)
+                : null;
         }
 
         async all() {
